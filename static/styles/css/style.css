@@ -148,11 +148,11 @@ a {
   margin-left: 13px;
   font-family: "BPG Nino Mtavruli Bold", sans-serif;
 }
-.parent .mainContainer {
+.parent .mainContSection {
   grid-column: 2/5;
   grid-row: 2/5;
 }
-.parent .mainContainer .main-page-cards {
+.parent .mainContSection .main-page-cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,7 +161,7 @@ a {
   grid-column-gap: 126px;
   grid-row-gap: 57px;
 }
-.parent .mainContainer .main-page-cards .new-container {
+.parent .mainContSection .main-page-cards .new-container {
   max-width: 912px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -172,17 +172,17 @@ a {
           flex-direction: column;
   gap: 40px;
 }
-.parent .mainContainer .main-page-cards .new-container p {
+.parent .mainContSection .main-page-cards .new-container p {
   font-size: 32px;
   text-align: left;
   color: #0A2B39;
   font-family: "BPG Nino Mkhedruli", sans-serif;
   line-height: 40px;
 }
-.parent .mainContainer .main-page-cards .new-container .first-word {
+.parent .mainContSection .main-page-cards .new-container .first-word {
   font-family: "BPG Nino Mtavruli Bold", sans-serif;
 }
-.parent .mainContainer .main-page-cards .card {
+.parent .mainContSection .main-page-cards .card {
   background-color: #C1D4D6;
   position: relative;
   display: -webkit-box;
@@ -203,46 +203,46 @@ a {
   width: 200px;
   height: 252px;
 }
-.parent .mainContainer .main-page-cards .card .card-title-1-2 {
+.parent .mainContSection .main-page-cards .card .card-title-1-2 {
   margin-bottom: 16px;
 }
-.parent .mainContainer .main-page-cards .card .absolute-first {
+.parent .mainContSection .main-page-cards .card .absolute-first {
   position: absolute;
   top: 85px;
   left: 60px;
 }
-.parent .mainContainer .main-page-cards .card .absolute-second {
+.parent .mainContSection .main-page-cards .card .absolute-second {
   position: absolute;
   top: 75px;
   right: 75px;
 }
-.parent .mainContainer .main-page-cards .card .absolute-third {
+.parent .mainContSection .main-page-cards .card .absolute-third {
   position: absolute;
   top: 77px;
   left: 70px;
 }
-.parent .mainContainer .main-page-cards .card .absolute-fourth {
+.parent .mainContSection .main-page-cards .card .absolute-fourth {
   position: absolute;
   top: 72px;
   left: 58px;
 }
-.parent .mainContainer .main-page-cards .card .absolute-fifth {
+.parent .mainContSection .main-page-cards .card .absolute-fifth {
   position: absolute;
   top: 74px;
   right: 45px;
 }
-.parent .mainContainer .main-page-cards .card .absolute-sixth {
+.parent .mainContSection .main-page-cards .card .absolute-sixth {
   position: absolute;
   top: 74px;
   left: 60px;
 }
-.parent .mainContainer .main-page-cards .card h3 {
+.parent .mainContSection .main-page-cards .card h3 {
   color: #5890AE;
   font-size: 1.563rem;
   max-width: 150px;
   font-family: "BPG Nino Mtavruli Bold", sans-serif;
 }
-.parent .mainContainer .main-page-cards .card .downloadCont {
+.parent .mainContSection .main-page-cards .card .downloadCont {
   position: absolute;
   top: 0;
   right: -56px;
@@ -251,7 +251,7 @@ a {
   border-radius: 0px 13px 13px 0px;
   background-color: #C1D4D6;
 }
-.parent .mainContainer .main-page-cards .card .downloadCont .downloadBtn {
+.parent .mainContSection .main-page-cards .card .downloadCont .downloadBtn {
   position: absolute;
   top: 9px;
   right: 10px;
