@@ -11,7 +11,9 @@ MainPage.mainPageCards.forEach((card,index )=> {
     downloadCont.setAttribute('class','downloadCont')
     const download = document.createElement('img')
     download.setAttribute('class', 'downloadBtn')
-  
+
+    download.src = './static/images/icons/download.svg'
+    download.alt = 'download-btn'
     img.src = card.img;
     img2.src = card.img2;
     img2.alt = card.title;
@@ -55,54 +57,61 @@ MainPage.mainPageCards.forEach((card,index )=> {
     cards.append(cardDiv);
   });
 }
+import { tavpurceli } from './tavpurceli.js';
+
+// Getting references to DOM elements
 const mainSvg = document.querySelector('.mainSvg');
 const aboutProject = document.querySelector('.about-project');
 const header = document.querySelector('.header');
+// Creating a new <h3> element to be appended to header
 const aboutProjecttitle = document.createElement('h3')
 aboutProjecttitle.setAttribute('class','test')
 aboutProjecttitle.textContent = 'პროექტის შესახებ'
 
+// Adding click event listener to aboutProject element
 aboutProject.addEventListener('click', () => {
+  // Appending aboutProjecttitle to header element
   header.append(aboutProjecttitle);
   aboutProject.classList.add('hide');
-  // inserting div-container with homeSvg icon with its title 
-  // Using requestAnimationFrame to apply styles after an element is displayed 
+  
+  // Inserting a new <div> element after mainSvg
   mainSvg.insertAdjacentHTML('afterend', `<div class="homeSvg">
    <img src="./static/images/icons/01_home.svg" alt="icon">
    <h3>თავფურცელი</h3>
    </div>`);
-   const mainPageCards = document.querySelector('.main-page-cards');
-   const newContent = `
-  <div class="new-container">
-    <p class='about-project-text'>მოემზადე: ამ განყოფილებაში განთავსებული 
-    მოკლე ტექსტი რომელიც გააცნობს მოსწავლეს 
-    ძირიტად თემას, საკითხს. ასევე თემასთან 
-    დაკავშირებული კითხვები; წაიკითხე: ამ განყოფილებაში 
-    განთავსებული იქნება მოკლე მოთხრეობა; უპასუხე: მას შემდეგი 
-    რაც ბაშვები მოთხრობაში მოცემულ საკითხებს გაეცნობიან
-     მასწავლებლელი ამ საკითხებთან დაკავშირებით კითხვა 
-     პასუხის რეჟიმში იმუშავებს. ძირითადი კითხვები ამ 
-     განყოფილებაში იქნება მოცემული; შეავსე: ამ განყოფილებაში 
-     სამი ინტერაქტიული დავალება იქნება მოცემული; შექმენი:
-      ბოლო განყოფილებაში მოსწავლეს თემასთან დაკავშირებული 
-      პროექტი ექნება შესაქმნელი რომელიც მოსწავლეს სხვადასხვა,
-       მათ შორის შემოქმედებითი უნარების განვითარებსი შესაძლებლობა 
-       ექნება. მასწავლებელს შესაძებელი ექნება რესწურსთან
-        პროექტორის საშუალებით მთელ კლასთან ერთად იმუშაოს, 
-        მოსწავლეებს საშუალება მისცეს ინდივიდუალლურად
-         იმუშაონ რესურსზე, ან ელექტრონული რესურსის ცალკეული 
-         დავალების დასაბეჭდი ვერსია ამობეჭდოს და მოსწავლეები 
-         ჯგუფურად ან ინდივიდუალურად ამუშაოს ნაბეჭდ ვერსიაზე
-         .</p>
-  </div>
-`;
-mainPageCards.innerHTML = newContent;
 
+  // Replacing innerHTML of mainPageCards with a new <div> element
+  const mainPageCards = document.querySelector('.main-page-cards');
+  const newContent = `
+    <div class="new-container">
+    </div>
+  `;
+  mainPageCards.innerHTML = newContent;
+
+  // Getting reference to the new container
+  const newContainer = document.querySelector('.new-container');
+
+  // Using requestAnimationFrame to apply styles after an element is displayed 
   window.requestAnimationFrame(() => {
     const homeSvg = document.querySelector('.homeSvg');
     homeSvg.style.backgroundColor = '#C1D4D6';
   });
-  // 
+
+  // Iterating over tavpurceli array and creating a new <div> element for each item
+  tavpurceli.forEach((item) => {
+    const dataElement = document.createElement('p');
+    dataElement.textContent = Object.values(item)[0]; // This will get the value of the first key in each object
+      // Get the first word of the textContent
+  const firstWord = dataElement.textContent.split(' ')[0];
+
+  // Wrap the first word in a span with a specific class
+  const formattedText = `<span class="first-word">${firstWord}</span> ${dataElement.textContent.slice(firstWord.length)}`;
+
+  // Set the formattedText as the textContent of the element
+  dataElement.innerHTML = formattedText;
+
+    newContainer.appendChild(dataElement);
+  });
 });
 
 
