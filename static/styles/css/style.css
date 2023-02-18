@@ -99,6 +99,7 @@ a {
       -ms-flex-align: center;
           align-items: center;
   height: 79px;
+  max-width: 262px;
   cursor: pointer;
 }
 .parent .mainSidebar .homeSvg h3 {

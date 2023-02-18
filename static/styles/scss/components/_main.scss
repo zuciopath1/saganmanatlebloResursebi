@@ -14,6 +14,7 @@
             .homeSvg{
                 @include flex (space-around,center);
                 height: 79px;
+                max-width: 262px;
                 cursor: pointer;
                 h3{
                     font-size: 25px;
