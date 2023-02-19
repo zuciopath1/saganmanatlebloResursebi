@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="/manifest.json">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#C1D4D6">
     <link rel="stylesheet" href="./static/styles/css/style.css">
     <link rel="stylesheet" href="./static/fonts/css/bpg-nino-mtavruli-bold.min.css">
     <link rel="stylesheet" href="./static/fonts/css/bpg-nino-mkhedruli.min.css">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
     <title>Document</title>
+	<meta name="description" content="description will be displayed here lol">
 </head>
 <body>
     <div class="parent">
         <header class="mainSidebar">
+			<nav>
 			<ul>
-				<nav>
 					<li>
 						<svg class="mainSvg" width="262" height="98" enable-background="new 0 0 259.3 98.3" version="1.1" viewBox="0 0 259.3 98.3" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
 							<style type="text/css">
@@ -89,8 +92,8 @@
 						<div class="homeSvg">
 						</div>
 					</li>
-				</nav>
 			</ul>
+		</nav>
 			<div class="about-project">
 				<img src="./static/images/icons/05_proeqtisShesaxeb.svg" alt="icon">
 				<h3 class="test">პროექტის შესახებ</h3>
@@ -107,6 +110,7 @@
 			</div>
 		</section>
     </div>
-    <script type="module" src="static/js/app.js"></script>
+	<script defer src="./sw.js"></script>
+    <script defer type="module" src="static/js/app.js"></script>
 </body>
 </html>

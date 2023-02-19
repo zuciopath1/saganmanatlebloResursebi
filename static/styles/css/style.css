@@ -69,6 +69,11 @@ a {
           justify-content: center;
 }
 
+@font-face {
+  font-family: "MyWebFont";
+  src: url("myfont.woff2") format("woff2"), url("myfont.woff") format("woff");
+  font-display: swap;
+}
 .parent {
   display: grid;
   grid-template-columns: repeat(4, auto);
