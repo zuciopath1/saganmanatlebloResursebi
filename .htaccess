@@ -18,3 +18,4 @@
     ExpiresByType text/javascript "access plus 1 month"
 </IfModule>
 AddType application/json .json
+Header set Permissions-Policy "interest-cohort=()"
