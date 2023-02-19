@@ -19,9 +19,9 @@ if ('serviceWorker' in navigator) {
           cache.addAll([
             '/',
             '/index.html',
-            '/styles.css/style.min.css',
-            '/js/app.js',
-            '/favicon.png'
+            '/static/styles/css/style.css',
+            '/static/js/app.js',
+            // '/favicon.png'
           ]);
         })
     );
