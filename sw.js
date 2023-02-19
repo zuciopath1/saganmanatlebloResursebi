@@ -1,7 +1,7 @@
 // Register the service worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/saganmanatlebloResursebi/sw.js', { scope: '/saganmanatlebloResursebi/' })
+      navigator.serviceWorker.register('https://zuciopath1.github.io/saganmanatlebloResursebi/sw.js', { scope: 'https://zuciopath1.github.io/saganmanatlebloResursebi/' })
         .then(registration => {
           console.log('Service worker registered successfully:', registration);
         })
