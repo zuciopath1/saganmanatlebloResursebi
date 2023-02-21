@@ -53,6 +53,10 @@ MainPage.mainPageCards.forEach((card,index )=> {
     cards.append(cardDiv);
   });
 }
+const homeSvgExists = document.querySelector('.homeSvg');
+const mainPageCards = document.querySelector('.main-page-cards')
+   // Getting reference to the new container
+    const newContainer = document.querySelector('.new-container');
 import { tavpurceli } from './tavpurceli.js';
 // Getting references to DOM elements
 const mainSvg = document.querySelector('.mainSvg');
@@ -67,24 +71,24 @@ aboutProject.addEventListener('click', () => {
   // Appending aboutProjecttitle to header element
   header.append(aboutProjecttitle);
   aboutProject.classList.add('hide');
-  // Inserting a new <div> element after mainSvg
-  mainSvg.insertAdjacentHTML('afterend', `<div class="homeSvg">
-   <img src="./static/images/icons/01_home.svg" alt="icon">
-   <h3>თავფურცელი</h3>
-   </div>`);
-  // Replacing innerHTML of mainPageCards with a new <div> element
-  const mainPageCards = document.querySelector('.main-page-cards');
-  const newContent = `
-    <div class="new-container">
-    </div>
-  `;
-  mainPageCards.innerHTML = newContent;
-  // Getting reference to the new container
-  const newContainer = document.querySelector('.new-container');
+
   // Using requestAnimationFrame to apply styles after an element is displayed 
+  newContainer.style.display = 'flex'
+  mainPageCards.style.display = 'none'
   window.requestAnimationFrame(() => {
     const homeSvg = document.querySelector('.homeSvg');
     homeSvg.style.backgroundColor = '#C1D4D6';
+    homeSvg.style.display = 'flex'
+    
+  });
+  const homeSvg = document.querySelector('.homeSvg')
+  homeSvg.addEventListener('click', () => {
+    if (header.contains(aboutProjecttitle)) {
+      aboutProject.classList.remove('hide');
+      header.removeChild(aboutProjecttitle);
+      newContainer.style.display = 'none'
+      mainPageCards.style.display = 'grid'
+    }
   });
   // Iterating over tavpurceli array and creating a new <div> element for each item
   tavpurceli.forEach((item) => {
@@ -99,6 +103,7 @@ aboutProject.addEventListener('click', () => {
     newContainer.appendChild(dataElement);
   });
 });
+
 
 
 

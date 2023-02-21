@@ -48,13 +48,9 @@ table {
   border-spacing: 0;
 }
 
-*, *:before, *:after {
+*, *::before, *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
 }
 
 .flex-center {
@@ -80,7 +76,6 @@ a {
   grid-template-rows: repeat(5, auto);
   grid-column-gap: 52px;
   grid-row-gap: 29px;
-  max-width: 1280px;
   margin: 0 auto;
   min-height: 100vh;
 }
@@ -105,6 +100,7 @@ a {
           align-items: center;
   height: 79px;
   max-width: 262px;
+  display: none;
   cursor: pointer;
 }
 .parent .mainSidebar .homeSvg h3 {
@@ -142,7 +138,7 @@ a {
   display: none;
 }
 .parent .header {
-  grid-column: 2/5;
+  grid-column: 2/6;
   height: 98px;
   background-color: #C1D4D6;
 }
@@ -157,16 +153,7 @@ a {
   grid-column: 2/5;
   grid-row: 2/5;
 }
-.parent .mainContSection .main-page-cards {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  grid-column-gap: 126px;
-  grid-row-gap: 57px;
-}
-.parent .mainContSection .main-page-cards .new-container {
+.parent .mainContSection .new-container {
   max-width: 912px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -176,16 +163,27 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 40px;
+  display: none;
 }
-.parent .mainContSection .main-page-cards .new-container p {
+.parent .mainContSection .new-container p {
   font-size: 32px;
   text-align: left;
   color: #0A2B39;
   font-family: "BPG Nino Mkhedruli", sans-serif;
   line-height: 40px;
 }
-.parent .mainContSection .main-page-cards .new-container .first-word {
+.parent .mainContSection .new-container .first-word {
   font-family: "BPG Nino Mtavruli Bold", sans-serif;
+}
+.parent .mainContSection .main-page-cards {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  max-width: 2124px;
+  margin: 0 auto;
+  -webkit-column-gap: 126px;
+     -moz-column-gap: 126px;
+          column-gap: 126px;
+  row-gap: 57px;
 }
 .parent .mainContSection .main-page-cards .card {
   background-color: #C1D4D6;
