@@ -68,10 +68,26 @@ aboutProjecttitle.setAttribute('class','test')
 aboutProjecttitle.textContent = 'პროექტის შესახებ'
 // Adding click event listener to aboutProject element
 aboutProject.addEventListener('click', () => {
+     // Check if tavpurceli has already been rendered
+     if (newContainer.childNodes.length === 0) {
+      // Iterate over tavpurceli array and creating a new <div> element for each item
+      tavpurceli.forEach((item) => {
+        const dataElement = document.createElement('p');
+        dataElement.textContent = Object.values(item)[0]; // This will get the value of the first key in each object
+  
+        // Get the first word of the textContent
+        const firstWord = dataElement.textContent.split(' ')[0];
+        // Wrap the first word in a span with a specific class
+        const formattedText = `<span class="first-word">${firstWord}</span> ${dataElement.textContent.slice(firstWord.length)}`;
+        // Set the formattedText as the textContent of the element
+        dataElement.innerHTML = formattedText;
+  
+        newContainer.appendChild(dataElement);
+      });
+    }
   // Appending aboutProjecttitle to header element
   header.append(aboutProjecttitle);
   aboutProject.classList.add('hide');
-
   // Using requestAnimationFrame to apply styles after an element is displayed 
   newContainer.style.display = 'flex'
   mainPageCards.style.display = 'none'
@@ -89,19 +105,7 @@ aboutProject.addEventListener('click', () => {
       newContainer.style.display = 'none'
       mainPageCards.style.display = 'grid'
     }
-  });
-  // Iterating over tavpurceli array and creating a new <div> element for each item
-  tavpurceli.forEach((item) => {
-    const dataElement = document.createElement('p');
-    dataElement.textContent = Object.values(item)[0]; // This will get the value of the first key in each object
-      // Get the first word of the textContent
-  const firstWord = dataElement.textContent.split(' ')[0];
-  // Wrap the first word in a span with a specific class
-  const formattedText = `<span class="first-word">${firstWord}</span> ${dataElement.textContent.slice(firstWord.length)}`;
-  // Set the formattedText as the textContent of the element
-  dataElement.innerHTML = formattedText;
-    newContainer.appendChild(dataElement);
-  });
+  }); 
 });
 
 
