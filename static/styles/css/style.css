@@ -138,7 +138,7 @@ table {
   display: none;
 }
 .parent .header {
-  grid-column: 2/6;
+  grid-column: 2/5;
   height: 98px;
   background-color: #C1D4D6;
 }
@@ -150,7 +150,9 @@ table {
   font-family: "BPG Nino Mtavruli Bold", sans-serif;
 }
 .parent .mainContSection {
-  grid-column: 2/5;
+  margin: auto;
+  width: 100%;
+  grid-column: 2/3;
   grid-row: 2/5;
 }
 .parent .mainContSection .new-container {
@@ -203,6 +205,7 @@ table {
           flex-direction: column;
   text-align: center;
   gap: 16px;
+  width: 100%;
   width: 200px;
   height: 252px;
 }
@@ -259,4 +262,132 @@ table {
   top: 9px;
   right: 10px;
   cursor: pointer;
+}
+
+@media (max-width: 2700px) and (min-width: 1281px) {
+  .parent {
+    grid-template-columns: repeat(2, 0fr);
+  }
+  .parent .header {
+    grid-column: 2/6;
+  }
+  .parent .mainContSection {
+    max-width: 1130px;
+    height: 710px;
+    grid-column: 3/5;
+  }
+  .parent .mainContSection .main-page-cards {
+    -webkit-column-gap: 186px;
+       -moz-column-gap: 186px;
+            column-gap: 186px;
+    row-gap: 126px;
+  }
+  .parent .mainContSection .main-page-cards .card {
+    width: 230px;
+    height: 290px;
+  }
+  .parent .mainContSection .main-page-cards .card h3 {
+    font-size: 29px;
+  }
+  .parent .mainContSection .main-page-cards .card .bookImg {
+    width: 160px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-first {
+    top: 100px;
+    left: 65px;
+    width: 98px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-second {
+    top: 90px;
+    right: 85px;
+    width: 43px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-third {
+    top: 90px;
+    left: 80px;
+    width: 90px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-fourth {
+    top: 84px;
+    left: 70px;
+    width: 102px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-fifth {
+    top: 86px;
+    right: 53px;
+    width: 103px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-sixth {
+    top: 86px;
+    left: 75px;
+    width: 106px;
+  }
+}
+@media (min-width: 2700px) {
+  .parent {
+    grid-template-columns: repeat(2, 0fr);
+  }
+  .parent .header {
+    grid-column: 2/6;
+  }
+  .parent .mainContSection {
+    max-width: 2125px;
+    height: 1300px;
+    grid-column: 3/6;
+  }
+  .parent .mainContSection .main-page-cards {
+    -webkit-column-gap: 480px;
+       -moz-column-gap: 480px;
+            column-gap: 480px;
+    row-gap: 410px;
+  }
+  .parent .mainContSection .main-page-cards .card {
+    width: 355px;
+    height: 445px;
+  }
+  .parent .mainContSection .main-page-cards .card h3 {
+    font-size: 44px;
+    max-width: 270px;
+  }
+  .parent .mainContSection .main-page-cards .card .bookImg {
+    width: 245px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-first {
+    top: 165px;
+    left: 100px;
+    width: 150px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-second {
+    top: 145px;
+    right: 127px;
+    width: 66px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-third {
+    top: 147px;
+    left: 125px;
+    width: 136px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-fourth {
+    top: 113px;
+    left: 113px;
+    width: 156px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-fifth {
+    top: 135px;
+    right: 75px;
+    width: 158px;
+  }
+  .parent .mainContSection .main-page-cards .card .absolute-sixth {
+    top: 136px;
+    left: 115px;
+    width: 162px;
+  }
+}
+@media (max-width: 768px) {
+  .parent {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(8, auto);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
 }

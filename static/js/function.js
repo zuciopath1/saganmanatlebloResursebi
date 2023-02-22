@@ -10,6 +10,7 @@ MainPage.mainPageCards.forEach((card,index )=> {
     downloadCont.setAttribute('class','downloadCont')
     const download = document.createElement('img')
     download.setAttribute('class', 'downloadBtn')
+    img.setAttribute('class', 'bookImg')
 // 
     download.src = './static/images/icons/download.svg'
     download.alt = 'download-btn'
@@ -49,11 +50,9 @@ MainPage.mainPageCards.forEach((card,index )=> {
     cardDiv.append(h3.cloneNode(true));
     downloadCont.append(download);
     cardDiv.append(downloadCont)
-
     cards.append(cardDiv);
   });
 }
-const homeSvgExists = document.querySelector('.homeSvg');
 const mainPageCards = document.querySelector('.main-page-cards')
    // Getting reference to the new container
     const newContainer = document.querySelector('.new-container');
@@ -107,9 +106,6 @@ aboutProject.addEventListener('click', () => {
     }
   }); 
 });
-
-
-
 
 
 
