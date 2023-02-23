@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" manifest="/manifest.json">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="#C1D4D6">
-	<meta name="description" content="description will be displayed here lol">
+    <meta name="theme-color" content="#C1D4D6">
+    <meta name="description" content="description will be displayed here lol">
     <!-- <link rel="stylesheet" href="./static/fonts/css/bpg-nino-mtavruli-bold.min.css">
     <link rel="stylesheet" href="./static/fonts/css/bpg-nino-mkhedruli.min.css"> -->
-	<link rel="apple-touch-icon" href="apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="512x512" href="/manifest.json">
-	<!-- <script src="/sw-register.js"></script>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/manifest.json">
+    <!-- <script src="/sw-register.js"></script>
 	<script src="/sw.js"></script> -->
-	<link rel="stylesheet" href="./static/styles/css/style.min.css">
+    <link rel="stylesheet" href="./static/styles/css/style.min.css">
     <script src="./static/js/app.js" type="module" defer></script>
     <title>Document</title>
 </head>
+
 <body>
-	<header>
+    <header>
         <div class="mainLogo">
             <svg class="mainSvg" width="262" height="98" enable-background="new 0 0 259.3 98.3" version="1.1"
                 viewBox="0 0 259.3 98.3" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
@@ -144,6 +146,14 @@
             <h3>თავფურცელი</h3>
         </div>
 
+        <nav class="navigation hide">
+            <button onclick="ShowLessonSection('moemzade')">მოემზადე</button>
+            <button onclick="ShowLessonSection('waikitxe')">წაიკითხე</button>
+            <button onclick="ShowLessonSection('upasuxe')">უპასუხე</button>
+            <button onclick="ShowLessonSection('sheavse')">შეავსე</button>
+            <button onclick="ShowLessonSection('sheqmeni')">შექმენი</button>
+        </nav>
+
         <div onclick="ShowAboutProject()" class="settings">
             <img src="./static/images/icons/05_proeqtisShesaxeb.svg" alt="aboutProject">
             <h3>პროექტის შესახებ</h3>
@@ -155,6 +165,7 @@
 
         <div class="body">
             <div id="books"></div>
+
             <div class="hide" id="aboutProject">
                 <p>
                     <strong>მოემზადე:</strong> ამ განყოფილებაში განთავსებული მოკლე ტექსტი რომელიც გააცნობს მოსწავლეს
@@ -183,7 +194,10 @@
                     ვერსია ამობეჭდოს და მოსწავლეები ჯგუფურად ან ინდივიდუალურად ამუშაოს ნაბეჭდ ვერსიაზე.
                 </p>
             </div>
+            
+            <div class="hide" id="lesson"></div>
         </div>
     </main>
 </body>
+
 </html>
