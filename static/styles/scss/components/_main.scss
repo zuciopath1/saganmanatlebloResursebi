@@ -1,13 +1,16 @@
 main {
     .head {
         background-color: $backgroundBlue;
-        font-family: "Nino_Mtavruli";
         font-size: 2rem;
         color: $textBlue;
         height: 6rem;
         display: flex;
         align-items: flex-end;
         padding: 0.5rem;
+
+        img {
+            padding-left: 0.5rem;
+        }
     }
 
     .body {
@@ -47,7 +50,6 @@ main {
                 }
 
                 .card-title {
-                    font-family: "Nino_Mtavruli";
                     font-weight: 600;
                     text-align: center;
                     color: $textBlue;
@@ -70,13 +72,41 @@ main {
             color: $textDarkBlue;
 
             p {
-                font-family: 'mainFont';
                 margin: 2rem 0;
                 font-size: 1.7rem;
                 line-height: 2.5rem;
 
                 strong {
                     font-family: 'BoldNino';
+                }
+            }
+        }
+
+        #lesson {
+            h2 {
+                color: $textBlue;
+                font-size: 2rem;
+                margin: 2rem 0 1rem;
+            }
+
+            img {
+                width: 8rem;
+                float: left;
+            }
+
+            p {
+                color: $textDarkBlue;
+                font-size: 2rem;
+                padding: 1rem 0 0 10rem;
+            }
+            
+            ol{
+                width: 100%;
+                padding: 1rem 0 0 13rem;
+                
+                li{
+                    color: $textDarkBlue;
+                    font-size: 2rem;
                 }
             }
         }

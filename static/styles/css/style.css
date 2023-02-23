@@ -1,16 +1,16 @@
 @font-face {
   font-family: "Nino_Mtavruli";
-  src: url(../fonts/bpg_nino_mtavruli_bold.otf) format("openType");
+  src: url(../../fonts/bpg_nino_mtavruli_bold.otf) format("openType");
   font-display: swap;
 }
 @font-face {
   font-family: "BoldNino";
-  src: url(../fonts/bpg_nino_mkhedruli_bold.otf) format("openType");
+  src: url(../../fonts/bpg_nino_mkhedruli_bold.otf) format("openType");
   font-display: swap;
 }
 @font-face {
   font-family: "mainFont";
-  src: url(../fonts/bpg-nino-mkhedruli-webfont.ttf) format("truetype");
+  src: url(../../fonts/bpg-nino-mkhedruli-webfont.ttf) format("truetype");
   font-display: swap;
 }
 * {
@@ -21,6 +21,7 @@
 }
 
 body {
+  font-family: "mainFont";
   display: grid;
   grid-template-columns: 21% 77%;
   grid-gap: 2%;
@@ -28,12 +29,20 @@ body {
   overflow-x: hidden;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nino_Mtavruli";
+}
+
 .hide {
   display: none !important;
 }
 
 header {
-  font-family: "Nino_Mtavruli";
   font-weight: 600;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -64,6 +73,15 @@ header .tavfurceli {
 header .tavfurceli img {
   padding-right: 1rem;
 }
+header .navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 header .settings {
   background-color: #c1d4d6;
   color: #999999;
@@ -84,7 +102,6 @@ header .settings img {
 
 main .head {
   background-color: #c1d4d6;
-  font-family: "Nino_Mtavruli";
   font-size: 2rem;
   color: #5890ae;
   height: 6rem;
@@ -95,6 +112,9 @@ main .head {
       -ms-flex-align: end;
           align-items: flex-end;
   padding: 0.5rem;
+}
+main .head img {
+  padding-left: 0.5rem;
 }
 main .body {
   display: -webkit-box;
@@ -146,7 +166,6 @@ main .body #books .card #bookCover5 {
   margin-top: 3.5rem;
 }
 main .body #books .card .card-title {
-  font-family: "Nino_Mtavruli";
   font-weight: 600;
   text-align: center;
   color: #5890ae;
@@ -165,11 +184,32 @@ main .body #aboutProject {
   color: #0a2b39;
 }
 main .body #aboutProject p {
-  font-family: "mainFont";
   margin: 2rem 0;
   font-size: 1.7rem;
   line-height: 2.5rem;
 }
 main .body #aboutProject p strong {
   font-family: "BoldNino";
+}
+main .body #lesson h2 {
+  color: #5890ae;
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+}
+main .body #lesson img {
+  width: 8rem;
+  float: left;
+}
+main .body #lesson p {
+  color: #0a2b39;
+  font-size: 2rem;
+  padding: 1rem 0 0 10rem;
+}
+main .body #lesson ol {
+  width: 100%;
+  padding: 1rem 0 0 13rem;
+}
+main .body #lesson ol li {
+  color: #0a2b39;
+  font-size: 2rem;
 }
