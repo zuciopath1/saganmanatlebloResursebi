@@ -1,0 +1,41 @@
+header {
+    font-family: "Nino_Mtavruli";
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+
+    .mainLogo {
+        background-color: $logoBackBlue;
+        height: 6rem;
+    }
+
+    .tavfurceli {
+        color: $textBlue;
+        background-color: $backgroundBlue;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        font-size: 1.4rem;
+        cursor: pointer;
+
+        img {
+            padding-right: 1rem;
+        }
+    }
+
+    .settings {
+        background-color: $backgroundBlue;
+        color: $lightBlackText;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        font-size: 1.4rem;
+        margin-top: auto;
+        cursor: pointer;
+
+        img {
+            padding: 0 1rem;
+        }
+    }
+}

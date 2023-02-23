@@ -1,0 +1,26 @@
+[
+  {
+    "img": "./static/images/absolute-icons/01_pegas.svg",
+    "title": "პეგასი"
+  },
+  {
+    "img": "./static/images/absolute-icons/02_mogzauri.svg",
+    "title": "დიდი მოგზაური"
+  },
+  {
+    "img": "./static/images/absolute-icons/03_napoleon.svg",
+    "title": "ნაპოლეონი"
+  },
+  {
+    "img": "./static/images/absolute-icons/04_angel.svg",
+    "title": "ანგელოზის ერთი დღე"
+  },
+  {
+    "img": "./static/images/absolute-icons/05_tamara.svg",
+    "title": "თამარას წიგნი"
+  },
+  {
+    "img": "./static/images/absolute-icons/06_varskvlav.svg",
+    "title": "მოპარული ვარსკვლავი"
+  }
+]

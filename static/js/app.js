@@ -1,6 +1,7 @@
-import * as functions from "./function.js";
-import * as variable from "./variable.js";
-import MainPage from './mainPage.json' assert {type: 'json'};
+import books from './Books.json' assert {type: 'json'};
+import lessons from './lessons.json' assert {type: 'json'};
+import { ShowBooks, ShowAboutProject, ShowTavfurceli } from "./function.js";
 
-
-functions.mainPageCard1(variable.card,MainPage)
+ShowBooks(books);
+window.ShowAboutProject = ShowAboutProject;
+window.ShowTavfurceli = ShowTavfurceli;
