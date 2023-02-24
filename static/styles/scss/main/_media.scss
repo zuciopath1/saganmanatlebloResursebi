@@ -1,92 +1,11 @@
-@media (max-width:2700px) and (min-width:1281px){
-    body main {
-          max-width: 1130px;
-          grid-column: 3/5;
-          grid-row: 2/5;
-          margin: auto;
-          .body #books{
-              column-gap: 186px;
-              row-gap: 126px;
-              .card{
-                  width: 230px;
-                  height: 290px;
-                  #bookCover0{
-                    width: 98px;
-                    margin-top: 5rem;
-                  }
-                  #bookCover1{
-                    width: 43px;
-                    margin-top: 4.5rem;
-                  }
-                  #bookCover2{
-                    width: 90px;
-                    margin-top: 4.2rem;
-                  }
-                  #bookCover3{
-                    width: 102px;
-                    margin-top: 4.2rem;
-                  }
-                  #bookCover4{
-                    width: 103px;
-                    margin-top: 4.2rem;
-                  }
-                  #bookCover5{
-                    width: 106px;
-                    margin-top: 4.2rem;
-                  }
-                  .card-title{
-                      font-size: 29px;
-                  }
-              }
-              .card img:nth-child(1){
-                width: 160px;
-              }
-          }
-      }
-  }
-  @media (min-width:2700px){
-    body main {
-          max-width: 2125px;
-          grid-column: 3/5;
-          grid-row: 2/5;
-          margin: auto;
-          .body #books{
-             column-gap: 480px;
-             row-gap: 410px;
-              .card{
-                width: 355px;
-                height: 445px;
-                .card-title{
-                    font-size: 44px;
+@media only screen and (min-width: 2000px) {
+    main {
+        .body {
+            #books {
+                .card {
+                    margin: 15rem 0;
                 }
-                  #bookCover0{
-                    width: 150px;
-                    margin-top: 7rem;
-                  }
-                  #bookCover1{
-                    width: 66px;
-                    margin-top: 6.5rem;
-                  }
-                  #bookCover2{
-                    width: 136px;
-                    margin-top: 6.2rem;
-                  }
-                  #bookCover3{
-                    width: 156px;
-                    margin-top: 6.2rem;
-                  }
-                  #bookCover4{
-                    width: 158px;
-                    margin-top: 6.5rem;
-                  }
-                  #bookCover5{
-                    width: 162px;
-                    margin-top: 6.5rem;
-                  }
-              }
-              .card img:nth-child(1){
-                width: 245px;
-              }
-          }
-      }
-  }
+            }
+        }
+    }
+}
