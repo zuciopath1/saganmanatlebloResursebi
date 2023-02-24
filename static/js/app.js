@@ -1,7 +1,8 @@
-import { ShowBooks, ShowAboutProject, ShowTavfurceli, ShowLesson, ShowLessonSection } from "./function.js";
+import booksData from './Books.json' assert {type: 'json'};
+import { ShowBooks, showLesson, showLessonSection, toggleParags } from "./function.js";
 
-ShowBooks(books);
-window.ShowAboutProject = ShowAboutProject;
-window.ShowTavfurceli = ShowTavfurceli;
-window.ShowLesson = ShowLesson;
-window.ShowLessonSection = ShowLessonSection;
+ShowBooks(books, booksData);
+
+window.showLesson = showLesson;
+window.showLessonSection = showLessonSection;
+window.toggleParags = toggleParags;

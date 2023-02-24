@@ -1,87 +1,124 @@
 import booksData from './Books.json' assert {type: 'json'};
-import lessons from './lessons.json' assert {type: 'json'};
+import { books, tavfurcelibtn, settingsbtn, aboutProject, head, nav, lessonSection, } from "./variable.js";
 
-const books = document.getElementById('books');
-const tavfurcelibtn = document.querySelector('.tavfurceli');
-const settings = document.querySelector('.settings');
-const aboutProject = document.getElementById('aboutProject');
-const head = document.querySelector('.head');
-const nav = document.querySelector('.navigation');
-const lessonSection = document.getElementById('lesson');
-let sections = {};
+let title = '';
 
-export function ShowBooks() {
-    booksData.forEach((data, index) => {
+export function ShowBooks(books, booksData) {
+    for (const [index, [bookname, data]] of Object.entries(Object.entries(booksData))) {
         let book = document.createElement('div');
         book.classList.add('card');
-        book.setAttribute('onclick', 'ShowLesson(this)');
+        book.setAttribute('onclick', 'showLesson(this)');
         book.innerHTML = `
-        <img src="./static/images/book-relative/book.svg" id="${index}" alt="${data.title}">
-        <img src="${data.img}" alt="${data.title}" class="cover" id="bookCover${index}">
-        <h3 class="card-title">${data.title}</h3>
+        <img src="./static/images/book-relative/book.svg" id="${index}" alt="${bookname}">
+        <img src="${data.img}" alt="${bookname}" class="cover" id="bookCover${index}">
+        <h3 class="card-title">${bookname}</h3>
         <img class="downloadBtn" src="./static/images/icons/download.svg" alt="download-btn">
         `;
 
         books.appendChild(book);
-    });
+    }
 }
 
-export function ShowAboutProject() {
+settingsbtn.addEventListener('click', () => {
     books.classList.add('hide');
     aboutProject.classList.remove('hide');
     tavfurcelibtn.classList.remove('hide');
     nav.classList.add('hide');
-    settings.classList.add('hide');
+    settingsbtn.classList.add('hide');
     lessonSection.classList.add('hide');
     head.innerHTML = '<h4>პროექტის შესახებ</h4>';
-}
+})
 
-export function ShowTavfurceli() {
+tavfurcelibtn.addEventListener('click', () => {
     books.classList.remove('hide');
     aboutProject.classList.add('hide');
     tavfurcelibtn.classList.add('hide');
     nav.classList.add('hide');
-    settings.classList.remove('hide');
+    settingsbtn.classList.remove('hide');
     lessonSection.classList.add('hide');
     head.innerHTML = '';
-}
+})
 
-export function ShowLesson(lesson) {
-    let idx = lesson.children[0].id;
-    let title = booksData[idx]['title'];
+export function showLesson(lesson) {
+    title = lesson.children[2].innerText;
 
     books.classList.add('hide');
     tavfurcelibtn.classList.remove('hide');
     nav.classList.remove('hide');
     lessonSection.classList.remove('hide');
 
-    sections = lessons[title];
-    ShowLessonSection('moemzade');
+    head.innerHTML = `<h3>${title}</h3> <img src="${booksData[title]['img']}">`;
 
-    head.innerHTML = `<h3>${title}</h3> <img src="${booksData[idx]['img']}">`;
+    showLessonSection('moemzade');
 }
 
-export function ShowLessonSection(section) {
+export function showLessonSection(section) {
+    let sections = booksData[title];
+
     switch (section) {
         case 'moemzade':
-            lessonSection.innerHTML = 'moemzade';
+            let moemzadeParags = '';
+            let moemzadeQuestions = '';
+
+            sections[section]['p'].forEach(p => {
+                moemzadeParags += `<p>${p}</p>`;
+            });
+            sections[section]['li'].forEach(li => {
+                moemzadeQuestions += `<li>${li}</li>`;
+            });
+
+            lessonSection.innerHTML = `
+            <h2>კითხვისთვის მზადება:</h2>
+            <img src="${sections[section]['image']}" alt="kitxvistvis mzadeba">
+            <div class="right-block">
+            ${moemzadeParags}
+            <strong>თემატური კითხვები:</strong>
+            <ul>
+            ${moemzadeQuestions}
+            </ul>
+            </div>
+            `;
             break;
 
         case 'waikitxe':
-            lessonSection.innerHTML = 'waikitxe';
+            let waikitxeParags1 = '';
+            let waikitxeParags3 = '';
+            sections[section]['p1'].forEach((p, idx) => {
+                waikitxeParags1 += `<p>${p}</p>`;
+                if (idx == 1) {
+                    waikitxeParags1 += '<img src="./static/images/absolute-icons/02_mogzauri.svg" alt="kitxvistvis mzadeba">';
+                }
+            });
+            sections[section]['p3'].forEach((p, idx) => {
+                waikitxeParags3 += `<p class="part3 hide">${p}</p>`;
+                if (idx == 1) {
+                    waikitxeParags3 += '<img class="part3 hide" src="./static/images/absolute-icons/02_mogzauri.svg" alt="kitxvistvis mzadeba">';
+                }
+            });
+
+            lessonSection.innerHTML = `
+            <div class="right-block">
+            ${waikitxeParags1}
+            <p class="part2 hide">${sections[section]['p2']}</p>
+            <img class="part2 hide" src="./static/images/absolute-icons/02_mogzauri.svg" alt="kitxvistvis mzadeba">
+            ${waikitxeParags3}
+            <i class="fa-solid fa-chevron-down" onclick="toggleParags()"></i>
+            </div>
+            `;
             break;
 
         case 'upasuxe':
-            let questions = '';
-
+            let upasuxeQuestions = '';
             sections[section]['li'].forEach(li => {
-                questions += `<li>${li}</li>`;
+                upasuxeQuestions += `<li>${li}</li>`;
             });
 
             lessonSection.innerHTML = `
             <h2>${sections[section]['title']}:</h2>
             <img src="${sections[section]['image']}" alt="${sections[section]['title']}">
-            <ol>${questions}</ol>
+            <div class="right-block">
+            <ol>${upasuxeQuestions}</ol>
+            </div>
             `;
             break;
 
@@ -93,8 +130,34 @@ export function ShowLessonSection(section) {
             lessonSection.innerHTML = `
             <h2>${sections[section]['title']}:</h2>
             <img src="${sections[section]['image']}" alt="${sections[section]['title']}">
+            <div class="right-block">
             <p>${sections[section]['p']}</p>
+            </div>
             `;
             break;
+    }
+}
+
+export function toggleParags() {
+    const part2 = document.querySelectorAll('.part2');
+    const part3 = document.querySelectorAll('.part3');
+
+    if (part2[0].classList.contains('hide')) {
+        part2.forEach(p => {
+            p.classList.remove('hide')
+        });
+    } else if (part3[0].classList.contains('hide')) {
+        part3.forEach(p => {
+            p.classList.remove('hide')
+        });
+        document.querySelector('.fa-chevron-down').classList.add('upDown');
+    } else {
+        part2.forEach(p => {
+            p.classList.add('hide')
+        });
+        part3.forEach(p => {
+            p.classList.add('hide')
+        });
+        document.querySelector('.fa-chevron-down').classList.remove('upDown');
     }
 }
