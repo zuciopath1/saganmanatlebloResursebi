@@ -1,11 +1,18 @@
-main {
+body{
+    font-family: "mainFont";
+    display: grid;
+    grid-template-columns: repeat(2, 0fr);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 52px;
+    grid-row-gap: 29px;
+    margin: 0 auto;
+    min-height: 100vh;
     .head {
         background-color: $backgroundBlue;
+        grid-column: 2/5;
         font-size: 2rem;
         color: $textBlue;
         height: 6rem;
-        display: flex;
-        align-items: flex-end;
         padding: 0.5rem;
 
         img {
@@ -13,6 +20,15 @@ main {
         }
     }
 
+main {
+    align-items: center;
+    cursor: pointer;
+    grid-column: 2/4;
+    grid-row: 2/6;
+    display: grid;
+    max-width: 2124px;
+    margin: 0 auto;
+    height: fit-content;
     .body {
         display: flex;
         justify-content: center;
@@ -23,7 +39,6 @@ main {
             flex-wrap: wrap;
             align-content: space-around;
             column-gap: 15%;
-
             .card {
                 position: relative;
                 background-color: $backgroundBlue;
@@ -148,4 +163,5 @@ main {
             }
         }
     }
+}
 }

@@ -20,15 +20,6 @@
   padding: 0;
 }
 
-body {
-  font-family: "mainFont";
-  display: grid;
-  grid-template-columns: 21% 77%;
-  grid-gap: 2%;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
 h1,
 h2,
 h3,
@@ -48,7 +39,6 @@ h6 {
 }
 
 header {
-  font-weight: 600;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -56,7 +46,8 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  justify-items: flex-start;
+  grid-row: 1/6;
+  font-weight: 600;
 }
 header .mainLogo {
   background-color: #a2b6b8;
@@ -105,20 +96,25 @@ header .settings img {
   padding: 0 1rem;
 }
 
-main .head {
+body {
+  font-family: "mainFont";
+  display: grid;
+  grid-template-columns: repeat(2, 0fr);
+  grid-template-rows: repeat(2, auto);
+  grid-column-gap: 52px;
+  grid-row-gap: 29px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+body .head {
   background-color: #c1d4d6;
+  grid-column: 2/5;
   font-size: 2rem;
   color: #5890ae;
   height: 6rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
   padding: 0.5rem;
 }
-main .head img {
+body .head img {
   padding-left: 0.5rem;
 }
 main .body {
@@ -132,7 +128,7 @@ main .body {
       -ms-flex-align: center;
           align-items: center;
 }
-main .body #books {
+body main .body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,7 +140,17 @@ main .body #books {
      -moz-column-gap: 15%;
           column-gap: 15%;
 }
-main .body #books .card {
+body main .body #books {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  max-width: 2124px;
+  margin: 0 auto;
+  -webkit-column-gap: 126px;
+     -moz-column-gap: 126px;
+          column-gap: 126px;
+  row-gap: 57px;
+}
+body main .body #books .card {
   position: relative;
   background-color: #c1d4d6;
   width: min(13rem, 100%);
@@ -166,27 +172,27 @@ main .body #books .card {
           align-items: center;
   cursor: pointer;
 }
-main .body #books .card .cover {
+body main .body #books .card .cover {
   position: absolute;
 }
-main .body #books .card #bookCover0,
-main .body #books .card #bookCover1 {
+body main .body #books .card #bookCover0,
+body main .body #books .card #bookCover1 {
   margin-top: 4rem;
 }
-main .body #books .card #bookCover2,
-main .body #books .card #bookCover3,
-main .body #books .card #bookCover4,
-main .body #books .card #bookCover5 {
+body main .body #books .card #bookCover2,
+body main .body #books .card #bookCover3,
+body main .body #books .card #bookCover4,
+body main .body #books .card #bookCover5 {
   margin-top: 3.5rem;
 }
-main .body #books .card .card-title {
+body main .body #books .card .card-title {
   font-weight: 600;
   text-align: center;
   color: #5890ae;
   font-size: 1.5rem;
   padding-top: 1rem;
 }
-main .body #books .card .downloadBtn {
+body main .body #books .card .downloadBtn {
   background-color: #c1d4d6;
   position: absolute;
   top: 0;
@@ -194,15 +200,15 @@ main .body #books .card .downloadBtn {
   padding: 0.5rem;
   border-radius: 0 13px 13px 0;
 }
-main .body #aboutProject {
+body main .body #aboutProject {
   color: #0a2b39;
 }
-main .body #aboutProject p {
+body main .body #aboutProject p {
   margin: 2rem 0;
   font-size: 1.7rem;
   line-height: 2.5rem;
 }
-main .body #aboutProject p strong {
+body main .body #aboutProject p strong {
   font-family: "BoldNino";
 }
 main .body #lesson {
@@ -219,7 +225,7 @@ main .body #lesson h2 {
   margin: 2rem 0 1rem;
   grid-column: 1/3;
 }
-main .body #lesson img {
+body main .body #lesson img {
   width: 8rem;
 }
 main .body #lesson .right-block {
