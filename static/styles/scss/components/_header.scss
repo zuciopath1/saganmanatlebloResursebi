@@ -1,8 +1,9 @@
 header {
+    font-weight: 600;
     display: flex;
     flex-direction: column;
-    grid-row: 1/6;
-    font-weight: 600;
+    justify-items: flex-start;
+
     .mainLogo {
         background-color: $logoBackBlue;
         height: 6rem;

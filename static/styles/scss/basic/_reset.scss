@@ -4,6 +4,15 @@
     padding: 0;
 }
 
+body {
+    font-family: 'mainFont';
+    display: grid;
+    grid-template-columns: 21% 77%;
+    grid-gap: 2%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
 h1,
 h2,
 h3,
