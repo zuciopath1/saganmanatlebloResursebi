@@ -3,8 +3,8 @@ body {
     display: grid;
     grid-template-columns: repeat(1,0fr);
     grid-template-rows: repeat(2, auto);
-    grid-column-gap: 52px;
-    grid-row-gap: 29px;
+    grid-column-gap: 3.25rem;
+    grid-row-gap: 1.813rem;
     margin: 0 auto;
     min-height: 100vh;
 
@@ -27,10 +27,10 @@ main {
         #books {
             display: grid;
             grid-template-columns: repeat(3, auto);
-            max-width: 2124px;
+            max-width: 132.75rem;
             margin: 0 auto;
-            column-gap: 126px;
-            row-gap: 57px;
+            column-gap: 7.875rem;
+            row-gap: 3.563rem;
             .card {
                 position: relative;
                 background-color: $backgroundBlue;
@@ -73,7 +73,7 @@ main {
                     top: 0;
                     left: 100%;
                     padding: 0.5rem;
-                    border-radius: 0 13px 13px 0;
+                    border-radius: 0 0.813rem 0.813rem 0;
                 }
             }
         }

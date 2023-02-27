@@ -2,6 +2,7 @@ import booksData from './Books.json' assert {type: 'json'};
 import { books, tavfurcelibtn, settingsbtn, aboutProject, head, nav, lessonSection, } from "./variable.js";
 
 let title = '';
+const header = document.querySelector('header')
 
 export function ShowBooks(books, booksData) {
     for (const [index, [bookname, data]] of Object.entries(Object.entries(booksData))) {
@@ -20,6 +21,7 @@ export function ShowBooks(books, booksData) {
 }
 
 settingsbtn.addEventListener('click', () => {
+    header.classList.remove('showBgColor')
     books.classList.add('hide');
     aboutProject.classList.remove('hide');
     tavfurcelibtn.classList.remove('hide');
@@ -30,6 +32,7 @@ settingsbtn.addEventListener('click', () => {
 })
 
 tavfurcelibtn.addEventListener('click', () => {
+    header.classList.remove('showBgColor')
     books.classList.remove('hide');
     aboutProject.classList.add('hide');
     tavfurcelibtn.classList.add('hide');
@@ -43,6 +46,7 @@ export function showLesson(lesson) {
     title = lesson.children[2].innerText;
 
     books.classList.add('hide');
+    header.classList.add('showBgColor')
     tavfurcelibtn.classList.remove('hide');
     nav.classList.remove('hide');
     lessonSection.classList.remove('hide');
@@ -83,24 +87,24 @@ export function showLessonSection(section) {
         case 'waikitxe':
             let waikitxeParags1 = '';
             let waikitxeParags3 = '';
+            let img1 = sections[section]['img1'] || '';
+            let img2 = sections[section]['img2'] || '';
             sections[section]['p1'].forEach((p, idx) => {
                 waikitxeParags1 += `<p>${p}</p>`;
                 if (idx == 1) {
-                    waikitxeParags1 += '<img src="./static/images/absolute-icons/02_mogzauri.svg" alt="kitxvistvis mzadeba">';
+                    waikitxeParags1 += `<img src="${img1}" alt="kitxvistvis mzadeba">`;
                 }
             });
             sections[section]['p3'].forEach((p, idx) => {
                 waikitxeParags3 += `<p class="part3 hide">${p}</p>`;
                 if (idx == 1) {
-                    waikitxeParags3 += '<img class="part3 hide" src="./static/images/absolute-icons/02_mogzauri.svg" alt="kitxvistvis mzadeba">';
+                    waikitxeParags3 += `<img class="part3 hide" src="${img2}" alt="kitxvistvis mzadeba">`;
                 }
             });
-
             lessonSection.innerHTML = `
             <div class="right-block">
             ${waikitxeParags1}
             <p class="part2 hide">${sections[section]['p2']}</p>
-            <img class="part2 hide" src="./static/images/absolute-icons/02_mogzauri.svg" alt="kitxvistvis mzadeba">
             ${waikitxeParags3}
             <i class="fa-solid fa-chevron-down" onclick="toggleParags()"></i>
             </div>
@@ -123,7 +127,7 @@ export function showLessonSection(section) {
             break;
 
         case 'sheavse':
-            lessonSection.innerHTML = 'sheavse';
+            lessonSection.innerHTML = '';
             break;
 
         case 'sheqmeni':
