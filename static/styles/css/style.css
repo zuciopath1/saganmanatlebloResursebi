@@ -38,6 +38,40 @@ h6 {
           transform: rotateX(180deg);
 }
 
+.showBgColor {
+  background-color: #A2B6B8;
+}
+
+.downloadBtnFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.downloadBtnFlex svg {
+  margin: 0.438rem 0 0 0.438rem;
+  cursor: pointer;
+}
+.downloadBtnFlex .task {
+  margin-left: 3.813rem;
+  padding: 6px 33px 6px 11px;
+  background-color: #5890AE;
+  width: 9.375rem;
+  margin-top: 0.438rem;
+  cursor: pointer;
+}
+.downloadBtnFlex .task h3 {
+  font-size: 1.125rem;
+  color: #C1D4D6;
+}
+
+.bigPegas {
+  max-width: 24.688rem;
+  width: 100%;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -47,7 +81,7 @@ header {
       -ms-flex-direction: column;
           flex-direction: column;
   grid-row: 1/4;
-  width: 262px;
+  width: 16.375rem;
 }
 header .mainLogo {
   background-color: #a2b6b8;
@@ -78,6 +112,55 @@ header .navigation {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+header .navigation .lessonMainCont {
+  position: relative;
+  max-width: 12.5rem;
+  height: 3.188rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.75rem 0 0.75rem 0;
+}
+header .navigation .lessonMainCont .lessonChildCont {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 11.063rem;
+  height: 3.188rem;
+  margin: 0.75rem 0.75rem;
+  cursor: pointer;
+}
+header .navigation .lessonMainCont .lessonChildCont .sideBarFirstIcon {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+header .navigation .lessonMainCont .lessonChildCont .moemzade-title {
+  background-color: #5890AE;
+  padding: 10px 7px 5px 23px;
+  position: absolute;
+  left: 2.563rem;
+  border-top-right-radius: 0.625rem;
+  width: 9.875rem;
+}
+header .navigation .lessonMainCont .lessonChildCont .moemzade-title h3 {
+  font-size: 1.563rem;
+  color: #C1D4D6;
+}
+header .navigation .lessonMainCont .sideBarDownloadBtn {
+  position: absolute;
+  top: 0.956rem;
+  right: -3.438rem;
+  cursor: pointer;
+}
 header .settings {
   background-color: #c1d4d6;
   color: #999999;
@@ -101,8 +184,8 @@ body {
   display: grid;
   grid-template-columns: repeat(1, 0fr);
   grid-template-rows: repeat(2, auto);
-  grid-column-gap: 52px;
-  grid-row-gap: 29px;
+  grid-column-gap: 3.25rem;
+  grid-row-gap: 1.813rem;
   margin: 0 auto;
   min-height: 100vh;
 }
@@ -129,12 +212,12 @@ body main {
 body main .body #books {
   display: grid;
   grid-template-columns: repeat(3, auto);
-  max-width: 2124px;
+  max-width: 132.75rem;
   margin: 0 auto;
-  -webkit-column-gap: 126px;
-     -moz-column-gap: 126px;
-          column-gap: 126px;
-  row-gap: 57px;
+  -webkit-column-gap: 7.875rem;
+     -moz-column-gap: 7.875rem;
+          column-gap: 7.875rem;
+  row-gap: 3.563rem;
 }
 body main .body #books .card {
   position: relative;
@@ -183,7 +266,7 @@ body main .body #books .card .downloadBtn {
   top: 0;
   left: 100%;
   padding: 0.5rem;
-  border-radius: 0 13px 13px 0;
+  border-radius: 0 0.813rem 0.813rem 0;
 }
 body main .body #aboutProject {
   color: #0a2b39;
@@ -251,39 +334,39 @@ body main .body #lesson .right-block .fa-solid {
 
 @media (max-width: 2700px) and (min-width: 1920px) {
   body main {
-    max-width: 1130px;
+    max-width: 70.625rem;
     grid-column: 2/4;
     grid-row: 2/3;
     margin: auto;
   }
   body main .body #books {
-    -webkit-column-gap: 186px;
-       -moz-column-gap: 186px;
-            column-gap: 186px;
-    row-gap: 126px;
+    -webkit-column-gap: 11.625rem;
+       -moz-column-gap: 11.625rem;
+            column-gap: 11.625rem;
+    row-gap: 7.875rem;
   }
   body main .body #books .card {
-    width: 230px;
-    height: 290px;
+    width: 14.375rem;
+    height: 18.125rem;
   }
   body main .body #books .card #bookCover0 {
-    width: 98px;
+    width: 6.125rem;
     margin-top: 5rem;
   }
   body main .body #books .card #bookCover1 {
-    width: 43px;
+    width: 2.688rem;
     margin-top: 4.5rem;
   }
   body main .body #books .card #bookCover2 {
-    width: 90px;
+    width: 5.625rem;
     margin-top: 4.2rem;
   }
   body main .body #books .card #bookCover3 {
-    width: 102px;
+    width: 6.375rem;
     margin-top: 4.2rem;
   }
   body main .body #books .card #bookCover4 {
-    width: 103px;
+    width: 6.625rem;
     margin-top: 4.2rem;
   }
   body main .body #books .card #bookCover5 {
@@ -291,7 +374,7 @@ body main .body #lesson .right-block .fa-solid {
     margin-top: 4.2rem;
   }
   body main .body #books .card .card-title {
-    font-size: 29px;
+    font-size: 1.813rem;
   }
   body main .body #books .card img:nth-child(1) {
     width: 160px;
@@ -299,49 +382,49 @@ body main .body #lesson .right-block .fa-solid {
 }
 @media (min-width: 2700px) {
   body main {
-    max-width: 2125px;
+    max-width: 132.188rem;
     grid-column: 2/4;
     grid-row: 2/3;
     margin: auto;
   }
   body main .body #books {
-    -webkit-column-gap: 480px;
-       -moz-column-gap: 480px;
-            column-gap: 480px;
-    row-gap: 410px;
+    -webkit-column-gap: 30rem;
+       -moz-column-gap: 30rem;
+            column-gap: 30rem;
+    row-gap: 25.625rem;
   }
   body main .body #books .card {
-    width: 355px;
-    height: 445px;
+    width: 22.188rem;
+    height: 27.813rem;
   }
   body main .body #books .card .card-title {
-    font-size: 44px;
+    font-size: 2.75rem;
   }
   body main .body #books .card #bookCover0 {
-    width: 150px;
+    width: 9.375rem;
     margin-top: 7rem;
   }
   body main .body #books .card #bookCover1 {
-    width: 66px;
+    width: 4.125rem;
     margin-top: 6.5rem;
   }
   body main .body #books .card #bookCover2 {
-    width: 136px;
+    width: 8.5rem;
     margin-top: 6.2rem;
   }
   body main .body #books .card #bookCover3 {
-    width: 156px;
+    width: 9.75rem;
     margin-top: 6.2rem;
   }
   body main .body #books .card #bookCover4 {
-    width: 158px;
+    width: 9.875rem;
     margin-top: 6.5rem;
   }
   body main .body #books .card #bookCover5 {
-    width: 162px;
+    width: 10.125rem;
     margin-top: 6.5rem;
   }
   body main .body #books .card img:nth-child(1) {
-    width: 245px;
+    width: 15.313rem;
   }
 }
