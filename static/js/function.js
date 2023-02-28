@@ -66,7 +66,11 @@ export function showLessonSection(section) {
             let moemzadeQuestions = '';
 
             sections[section]['p'].forEach(p => {
-                moemzadeParags += `<p>${p}</p>`;
+                if (typeof p == 'string') {
+                    moemzadeParags += `<p>${p}</p>`;
+                } else {
+                    moemzadeParags += `<strong>${p['strong']}</strong>`;
+                }
             });
             sections[section]['li'].forEach(li => {
                 moemzadeQuestions += `<li>${li}</li>`;

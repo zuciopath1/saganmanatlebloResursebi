@@ -24,7 +24,7 @@ body {
   font-family: "mainFont";
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-gap: 5rem;
+  grid-gap: 4rem;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -295,7 +295,7 @@ main .body #lesson .right-block {
 main .body #lesson .right-block strong {
   color: #5890ae;
   font-size: 2rem;
-  padding-bottom: 2rem;
+  line-height: 3rem;
 }
 main .body #lesson .right-block p {
   color: #0a2b39;
@@ -312,7 +312,7 @@ main .body #lesson .right-block ul {
   margin-left: 2rem;
 }
 main .body #lesson .right-block ul li {
-  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 main .body #lesson .right-block .fa-solid {
   width: 100%;
@@ -399,7 +399,10 @@ main .body #lesson .waikitxe .fa-solid {
 
 @media only screen and (min-width: 2000px) {
   main .body #books {
-    margin-top: 10rem;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    top: 50%;
   }
   main .body #books .card {
     margin: 8rem 0;

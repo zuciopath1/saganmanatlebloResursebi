@@ -2,7 +2,9 @@
     main {
         .body {
             #books {
-                margin-top: 10rem;
+                position: absolute;
+                transform: translateY(-50%);
+                top: 50%;
                 
                 .card {
                     margin: 8rem 0;
