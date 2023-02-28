@@ -14,8 +14,7 @@
   font-display: swap;
 }
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -43,17 +42,12 @@ h6 {
 }
 
 .upDown {
-  -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
 
 .downloadBtnFlex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 .downloadBtnFlex svg {
   margin: 0.4rem 0 0 0.4rem;
@@ -73,13 +67,8 @@ h6 {
 }
 
 header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 17rem;
 }
 header .mainLogo {
@@ -89,12 +78,8 @@ header .mainLogo {
 header .tavfurceli {
   color: #5890ae;
   background-color: #c1d4d6;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding: 0.5rem;
   font-size: 1.4rem;
   cursor: pointer;
@@ -103,34 +88,21 @@ header .tavfurceli img {
   padding-right: 1rem;
 }
 header .navigation {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 header .navigation .lessonMainCont {
   position: relative;
   max-width: 12.5rem;
   height: 3.2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin: 0.75rem 0 0.75rem 0;
 }
 header .navigation .lessonMainCont .lessonChildCont {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   width: 11rem;
   height: 3.2rem;
   margin: 0.75rem 0.75rem;
@@ -158,12 +130,8 @@ header .navigation .lessonMainCont .sideBarDownloadBtn {
 header .settings {
   background-color: #c1d4d6;
   color: #999999;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding: 0.5rem;
   font-size: 1.4rem;
   margin-top: auto;
@@ -178,40 +146,25 @@ main .head {
   font-size: 2rem;
   color: #5890ae;
   height: 6rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
   padding: 0.5rem;
 }
 main .head img {
   padding-left: 0.5rem;
 }
 main .body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   padding-bottom: 1rem;
 }
 main .body #books {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-line-pack: distribute;
-      align-content: space-around;
-  -webkit-column-gap: 15%;
-     -moz-column-gap: 15%;
-          column-gap: 15%;
+  flex-wrap: wrap;
+  align-content: space-around;
+  -moz-column-gap: 15%;
+       column-gap: 15%;
 }
 main .body #books .card {
   position: relative;
@@ -220,19 +173,10 @@ main .body #books .card {
   max-height: 16rem;
   margin: 2rem 0;
   padding: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   cursor: pointer;
 }
 main .body #books .card .cover {
@@ -276,9 +220,8 @@ main .body #aboutProject p strong {
 }
 main .body #lesson {
   display: grid;
-  -webkit-column-gap: 3rem;
-     -moz-column-gap: 3rem;
-          column-gap: 3rem;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
 }
 main .body #lesson h2 {
   color: #5890ae;
@@ -437,4 +380,4 @@ main .body #lesson .waikitxe .fa-solid {
   main .body #books .card .card-title {
     font-size: xx-large;
   }
-}
+}/*# sourceMappingURL=style.css.map */

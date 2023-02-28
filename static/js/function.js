@@ -1,14 +1,14 @@
 import booksData from './Books.json' assert {type: 'json'};
 import { books, tavfurcelibtn, settingsbtn, aboutProject, head, nav, lessonSection, } from "./variable.js";
 
-let title = '';
-const header = document.querySelector('header')
+let title = ''; // to save title of book
 
+// renders books on main page
 export function ShowBooks(books, booksData) {
     for (const [index, [bookname, data]] of Object.entries(Object.entries(booksData))) {
         let book = document.createElement('div');
         book.classList.add('card');
-        book.setAttribute('onclick', 'showLesson(this)');
+        book.setAttribute('onclick', 'showLesson(this)'); //show lessons on books click
         book.innerHTML = `
         <img src="./static/images/book-relative/book.svg" id="${index}" alt="${bookname}">
         <img src="${data.img}" alt="${bookname}" class="cover" id="bookCover${index}">
@@ -20,8 +20,8 @@ export function ShowBooks(books, booksData) {
     }
 }
 
+//click on setting button will show about projects and hide everything else
 settingsbtn.addEventListener('click', () => {
-    header.classList.remove('showBgColor')
     books.classList.add('hide');
     aboutProject.classList.remove('hide');
     tavfurcelibtn.classList.remove('hide');
@@ -31,8 +31,8 @@ settingsbtn.addEventListener('click', () => {
     head.innerHTML = '<h4>პროექტის შესახებ</h4>';
 })
 
+//click on home button will show main page and hide everything else
 tavfurcelibtn.addEventListener('click', () => {
-    header.classList.remove('showBgColor')
     books.classList.remove('hide');
     aboutProject.classList.add('hide');
     tavfurcelibtn.classList.add('hide');
@@ -42,11 +42,11 @@ tavfurcelibtn.addEventListener('click', () => {
     head.innerHTML = '';
 })
 
+//shows lessons for each book on click them
 export function showLesson(lesson) {
-    title = lesson.children[2].innerText;
+    title = lesson.children[2].innerText; // get name of book
 
     books.classList.add('hide');
-    header.classList.add('showBgColor')
     tavfurcelibtn.classList.remove('hide');
     nav.classList.remove('hide');
     lessonSection.classList.remove('hide');
@@ -56,6 +56,7 @@ export function showLesson(lesson) {
     showLessonSection('moemzade');
 }
 
+// show each lesson chosen by header (left nav bar)
 export function showLessonSection(section) {
     let sections = booksData[title];
 
@@ -73,7 +74,7 @@ export function showLessonSection(section) {
 
             lessonSection.innerHTML = `
             <h2>კითხვისთვის მზადება:</h2>
-            <img src="${sections[section]['image']}" alt="kitxvistvis mzadeba">
+            <img src="${sections[section]['image']}" class="lessonLogo" alt="kitxvistvis mzadeba">
             <div class="right-block">
             ${moemzadeParags}
             <strong>თემატური კითხვები:</strong>
@@ -86,26 +87,36 @@ export function showLessonSection(section) {
 
         case 'waikitxe':
             let waikitxeParags1 = '';
+            let waikitxeParags2 = '';
             let waikitxeParags3 = '';
-            let img1 = sections[section]['img1'] || '';
-            let img2 = sections[section]['img2'] || '';
-            sections[section]['p1'].forEach((p, idx) => {
+
+            sections[section]['p1'].forEach((p) => {
                 waikitxeParags1 += `<p>${p}</p>`;
-                if (idx == 1) {
-                    waikitxeParags1 += `<img src="${img1}" alt="kitxvistvis mzadeba">`;
-                }
             });
-            sections[section]['p3'].forEach((p, idx) => {
-                waikitxeParags3 += `<p class="part3 hide">${p}</p>`;
-                if (idx == 1) {
-                    waikitxeParags3 += `<img class="part3 hide" src="${img2}" alt="kitxvistvis mzadeba">`;
-                }
+            waikitxeParags1 += `<img src="${sections[section]["images"][0]}" alt="kitxvistvis mzadeba">`;
+
+            sections[section]['p2'].forEach((p) => {
+                waikitxeParags2 += `<p>${p}</p>`;
             });
+            waikitxeParags2 += `<img src="${sections[section]["images"][1]}" alt="kitxvistvis mzadeba">`;
+            waikitxeParags2 += `<img src="${sections[section]["images"][2]}" alt="kitxvistvis mzadeba">`;
+
+            sections[section]['p3'].forEach((p) => {
+                waikitxeParags3 += `<p>${p}</p>`;
+            });
+            waikitxeParags3 += `<img src="${sections[section]["images"][3]}" alt="kitxvistvis mzadeba">`;
+
             lessonSection.innerHTML = `
-            <div class="right-block">
+            <div class="${section} ${title}">
+            <div class="part1">
             ${waikitxeParags1}
-            <p class="part2 hide">${sections[section]['p2']}</p>
+            </div>
+            <div class="part2 hide">
+            ${waikitxeParags2}
+            </div>
+            <div class="part3 hide">
             ${waikitxeParags3}
+            </div>
             <i class="fa-solid fa-chevron-down" onclick="toggleParags()"></i>
             </div>
             `;
@@ -119,7 +130,7 @@ export function showLessonSection(section) {
 
             lessonSection.innerHTML = `
             <h2>${sections[section]['title']}:</h2>
-            <img src="${sections[section]['image']}" alt="${sections[section]['title']}">
+            <img src="${sections[section]['image']}" class="lessonLogo" alt="${sections[section]['title']}">
             <div class="right-block">
             <ol>${upasuxeQuestions}</ol>
             </div>
@@ -127,13 +138,13 @@ export function showLessonSection(section) {
             break;
 
         case 'sheavse':
-            lessonSection.innerHTML = '';
+            lessonSection.innerHTML = 'sheavse';
             break;
 
         case 'sheqmeni':
             lessonSection.innerHTML = `
             <h2>${sections[section]['title']}:</h2>
-            <img src="${sections[section]['image']}" alt="${sections[section]['title']}">
+            <img src="${sections[section]['image']}" class="lessonLogo" alt="${sections[section]['title']}">
             <div class="right-block">
             <p>${sections[section]['p']}</p>
             </div>
@@ -142,6 +153,7 @@ export function showLessonSection(section) {
     }
 }
 
+//for waikitxe section shows and hide paragraps on click arrow
 export function toggleParags() {
     const part2 = document.querySelectorAll('.part2');
     const part3 = document.querySelectorAll('.part3');

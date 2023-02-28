@@ -4,6 +4,15 @@
     padding: 0;
 }
 
+body {
+    font-family: 'mainFont';
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 5rem;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -17,33 +26,30 @@ h6 {
     display: none !important;
 }
 
-.upDown{
+.upDown {
     transform: rotateX(180deg);
 }
-.showBgColor{
-    background-color:#A2B6B8;
-}
-.downloadBtnFlex{
+
+.downloadBtnFlex {
     display: flex;
     align-items: center;
-    svg{
-        margin: 0.438rem 0 0 0.438rem;
+
+    svg {
+        margin: 0.4rem 0 0 0.4rem;
         cursor: pointer;
     }
-.task{
-    margin-left: 3.813rem;
-    padding: 6px 33px 6px 11px;
-    background-color: #5890AE;
-    width: 9.375rem;
-    margin-top: 0.438rem;
-    cursor: pointer;
-    h3{
-        font-size:1.125rem;
-        color: #C1D4D6;
+
+    .task {
+        margin-left: 3.8rem;
+        padding: 0.4rem 2rem 0.4rem 0.8rem;
+        background-color: $textBlue;
+        width: 9.3rem;
+        margin-top: 0.4rem;
+        cursor: pointer;
+
+        p {
+            font-size: 1.5rem;
+            color: $backgroundBlue;
+        }
     }
-}
-}
-.bigPegas{
-    max-width:24.688rem;
-    width: 100%;
 }

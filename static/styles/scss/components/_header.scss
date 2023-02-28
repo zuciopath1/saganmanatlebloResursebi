@@ -1,8 +1,9 @@
 header {
     display: flex;
     flex-direction: column;
-    grid-row: 1/4;
-    width: 16.375rem;
+    // grid-row: 1/4;
+    width: 17rem;
+
     .mainLogo {
         background-color: $logoBackBlue;
         height: 6rem;
@@ -22,47 +23,47 @@ header {
         }
     }
 
-    .navigation{
+    .navigation {
         display: flex;
         flex-direction: column;
-        .lessonMainCont{
+
+        .lessonMainCont {
             position: relative;
             max-width: 12.5rem;
-            height: 3.188rem;
+            height: 3.2rem;
             display: flex;
             align-items: center;
             margin: 0.75rem 0 0.75rem 0;
-            .lessonChildCont{
+
+            .lessonChildCont {
                 position: relative;
                 display: flex;
                 align-items: center;
-                width: 11.063rem;
-                height: 3.188rem;
+                width: 11rem;
+                height: 3.2rem;
                 margin: 0.75rem 0.75rem;
                 cursor: pointer;
-                .sideBarFirstIcon{
-                    position: absolute;
-                    z-index: 1;
-                    top: 0;
-                    left: 0;
-                }
-                .moemzade-title{
-                    background-color: #5890AE;
+
+                .lesson-title {
+                    background-color: $textBlue;
                     padding: 10px 7px 5px 23px;
                     position: absolute;
-                    left: 2.563rem;
-                    border-top-right-radius: 0.625rem;
-                    width: 9.875rem;
-                    h3{
-                        font-size: 1.563rem;
-                        color: #C1D4D6;
+                    left: 2rem;
+                    border-top-right-radius: 0.6rem;
+                    width: 9.9rem;
+                    z-index: -1;
+
+                    h3 {
+                        font-size: 1.5rem;
+                        color: $backgroundBlue;
                     }
                 }
             }
-            .sideBarDownloadBtn{
+
+            .sideBarDownloadBtn {
                 position: absolute;
-                top: 0.956rem;
-                right: -3.438rem;
+                top: 0.9rem;
+                right: -3.4rem;
                 cursor: pointer;
             }
         }
