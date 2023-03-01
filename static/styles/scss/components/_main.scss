@@ -22,9 +22,9 @@ body {
         }
     }
 main {
-    grid-row: 2/4;
     .body {
         #books {
+            grid-row: 2/4;
             display: grid;
             grid-template-columns: repeat(3, auto);
             max-width: 132.75rem;
@@ -111,11 +111,6 @@ main {
             .right-block {
                 margin-top: 1rem;
 
-                img {
-                    float: right;
-                    margin-right: 3rem;
-                }
-
                 strong {
                     color: $textBlue;
                     font-size: 2rem;
@@ -143,6 +138,102 @@ main {
                     li {
                         padding-top: 2rem;
                     }
+                }
+
+                .fa-solid {
+                    width: 100%;
+                    text-align: center;
+                    font-size: 3rem;
+                    font-weight: 900;
+                }
+            }
+
+            .waikitxe {
+                margin-top: 1rem;
+
+                .part1 {
+                    img {
+                        grid-area: img;
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    p {
+                        color: $textDarkBlue;
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                    }
+
+                    p:nth-child(1) {
+                        grid-area: p1;
+                    }
+
+                    p:nth-child(2) {
+                        grid-area: p2;
+                    }
+
+                    display: grid;
+                    grid-template-areas: 'p1 p1'
+                    'p2 img';
+                }
+
+                .part2 {
+                    p {
+                        color: $textDarkBlue;
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                    }
+
+                    p:nth-child(1) {
+                        grid-area: p1;
+                    }
+
+                    p:nth-child(2) {
+                        grid-area: p2;
+                    }
+
+                    img:nth-child(3) {
+                        position: relative;
+                        grid-area: img1;
+                        height: 10rem;
+                        left: 70%;
+                    }
+
+                    img:nth-child(4) {
+                        grid-area: img2;
+                        height: 10rem;
+                    }
+
+                    display: grid;
+                    grid-template-areas: 'p1 p1'
+                    'img1 img2'
+                    'p2 p2';
+                }
+
+                .part3 {
+                    p {
+                        color: $textDarkBlue;
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                    }
+
+                    p:nth-child(1) {
+                        grid-area: p1;
+                    }
+
+                    p:nth-child(2) {
+                        grid-area: p2;
+                    }
+
+                    img:nth-child(3) {
+                        grid-area: img;
+                        width: 100%;
+                        height: fit-content;
+                    }
+
+                    display: grid;
+                    grid-template-areas: 'p1 p1'
+                    'p2 img';
                 }
 
                 .fa-solid {

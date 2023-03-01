@@ -39,7 +39,7 @@ h6 {
 }
 
 .showBgColor {
-  background-color: #A2B6B8;
+  background-color: #a2b6b8;
 }
 
 .downloadBtnFlex {
@@ -57,14 +57,18 @@ h6 {
 .downloadBtnFlex .task {
   margin-left: 3.813rem;
   padding: 6px 33px 6px 11px;
-  background-color: #5890AE;
+  background-color: #5890ae;
   width: 9.375rem;
   margin-top: 0.438rem;
   cursor: pointer;
 }
 .downloadBtnFlex .task h3 {
   font-size: 1.125rem;
-  color: #C1D4D6;
+  color: #c1d4d6;
+}
+.downloadBtnFlex .task p {
+  font-size: 1.5rem;
+  color: #c1d4d6;
 }
 
 .bigPegas {
@@ -144,7 +148,7 @@ header .navigation .lessonMainCont .lessonChildCont .sideBarFirstIcon {
   left: 0;
 }
 header .navigation .lessonMainCont .lessonChildCont .moemzade-title {
-  background-color: #5890AE;
+  background-color: #5890ae;
   padding: 10px 7px 5px 23px;
   position: absolute;
   left: 2.563rem;
@@ -153,7 +157,7 @@ header .navigation .lessonMainCont .lessonChildCont .moemzade-title {
 }
 header .navigation .lessonMainCont .lessonChildCont .moemzade-title h3 {
   font-size: 1.563rem;
-  color: #C1D4D6;
+  color: #c1d4d6;
 }
 header .navigation .lessonMainCont .sideBarDownloadBtn {
   position: absolute;
@@ -206,10 +210,8 @@ body .head {
 body .head img {
   padding-left: 0.5rem;
 }
-body main {
-  grid-row: 2/4;
-}
 body main .body #books {
+  grid-row: 2/4;
   display: grid;
   grid-template-columns: repeat(3, auto);
   max-width: 132.75rem;
@@ -299,10 +301,6 @@ body main .body #lesson img {
 body main .body #lesson .right-block {
   margin-top: 1rem;
 }
-body main .body #lesson .right-block img {
-  float: right;
-  margin-right: 3rem;
-}
 body main .body #lesson .right-block strong {
   color: #5890ae;
   font-size: 2rem;
@@ -326,6 +324,82 @@ body main .body #lesson .right-block ul li {
   padding-top: 2rem;
 }
 body main .body #lesson .right-block .fa-solid {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+}
+body main .body #lesson .waikitxe {
+  margin-top: 1rem;
+}
+body main .body #lesson .waikitxe .part1 {
+  display: grid;
+  grid-template-areas: "p1 p1" "p2 img";
+}
+body main .body #lesson .waikitxe .part1 img {
+  grid-area: img;
+  width: 100%;
+  height: auto;
+}
+body main .body #lesson .waikitxe .part1 p {
+  color: #0a2b39;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+body main .body #lesson .waikitxe .part1 p:nth-child(1) {
+  grid-area: p1;
+}
+body main .body #lesson .waikitxe .part1 p:nth-child(2) {
+  grid-area: p2;
+}
+body main .body #lesson .waikitxe .part2 {
+  display: grid;
+  grid-template-areas: "p1 p1" "img1 img2" "p2 p2";
+}
+body main .body #lesson .waikitxe .part2 p {
+  color: #0a2b39;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+body main .body #lesson .waikitxe .part2 p:nth-child(1) {
+  grid-area: p1;
+}
+body main .body #lesson .waikitxe .part2 p:nth-child(2) {
+  grid-area: p2;
+}
+body main .body #lesson .waikitxe .part2 img:nth-child(3) {
+  position: relative;
+  grid-area: img1;
+  height: 10rem;
+  left: 70%;
+}
+body main .body #lesson .waikitxe .part2 img:nth-child(4) {
+  grid-area: img2;
+  height: 10rem;
+}
+body main .body #lesson .waikitxe .part3 {
+  display: grid;
+  grid-template-areas: "p1 p1" "p2 img";
+}
+body main .body #lesson .waikitxe .part3 p {
+  color: #0a2b39;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+body main .body #lesson .waikitxe .part3 p:nth-child(1) {
+  grid-area: p1;
+}
+body main .body #lesson .waikitxe .part3 p:nth-child(2) {
+  grid-area: p2;
+}
+body main .body #lesson .waikitxe .part3 img:nth-child(3) {
+  grid-area: img;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+body main .body #lesson .waikitxe .fa-solid {
   width: 100%;
   text-align: center;
   font-size: 3rem;

@@ -17,33 +17,44 @@ h6 {
     display: none !important;
 }
 
-.upDown{
+.upDown {
     transform: rotateX(180deg);
 }
-.showBgColor{
-    background-color:#A2B6B8;
+
+.showBgColor {
+    background-color: $logoBackBlue;
 }
-.downloadBtnFlex{
+
+.downloadBtnFlex {
     display: flex;
     align-items: center;
-    svg{
+
+    svg {
         margin: 0.438rem 0 0 0.438rem;
         cursor: pointer;
     }
-.task{
-    margin-left: 3.813rem;
-    padding: 6px 33px 6px 11px;
-    background-color: #5890AE;
-    width: 9.375rem;
-    margin-top: 0.438rem;
-    cursor: pointer;
-    h3{
-        font-size:1.125rem;
-        color: #C1D4D6;
+
+    .task {
+        margin-left: 3.813rem;
+        padding: 6px 33px 6px 11px;
+        background-color: $textBlue;
+        width: 9.375rem;
+        margin-top: 0.438rem;
+        cursor: pointer;
+
+        h3 {
+            font-size: 1.125rem;
+            color: $backgroundBlue;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: $backgroundBlue;
+        }
     }
 }
-}
-.bigPegas{
-    max-width:24.688rem;
+
+.bigPegas {
+    max-width: 24.688rem;
     width: 100%;
 }
