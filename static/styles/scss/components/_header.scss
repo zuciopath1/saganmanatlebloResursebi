@@ -47,7 +47,7 @@ header {
                     left: 0;
                 }
                 .moemzade-title{
-                    background-color: #5890AE;
+                    background-color: $textBlue;
                     padding: 10px 7px 5px 23px;
                     position: absolute;
                     left: 2.563rem;
@@ -55,7 +55,7 @@ header {
                     width: 9.875rem;
                     h3{
                         font-size: 1.563rem;
-                        color: #C1D4D6;
+                        color: $backgroundBlue;
                     }
                 }
             }
