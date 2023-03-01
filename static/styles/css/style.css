@@ -210,10 +210,8 @@ body .head {
 body .head img {
   padding-left: 0.5rem;
 }
-body main {
-  grid-row: 2/4;
-}
 body main .body #books {
+  grid-row: 2/4;
   display: grid;
   grid-template-columns: repeat(3, auto);
   max-width: 132.75rem;

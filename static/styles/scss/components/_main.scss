@@ -22,9 +22,9 @@ body {
         }
     }
 main {
-    grid-row: 2/4;
     .body {
         #books {
+            grid-row: 2/4;
             display: grid;
             grid-template-columns: repeat(3, auto);
             max-width: 132.75rem;
