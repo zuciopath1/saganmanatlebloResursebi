@@ -4,15 +4,6 @@
     padding: 0;
 }
 
-body {
-    font-family: 'mainFont';
-    display: grid;
-    grid-template-columns: 21% 77%;
-    grid-gap: 2%;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
 h1,
 h2,
 h3,
@@ -26,6 +17,44 @@ h6 {
     display: none !important;
 }
 
-.upDown{
+.upDown {
     transform: rotateX(180deg);
+}
+
+.showBgColor {
+    background-color: $logoBackBlue;
+}
+
+.downloadBtnFlex {
+    display: flex;
+    align-items: center;
+
+    svg {
+        margin: 0.438rem 0 0 0.438rem;
+        cursor: pointer;
+    }
+
+    .task {
+        margin-left: 3.813rem;
+        padding: 6px 33px 6px 11px;
+        background-color: $textBlue;
+        width: 9.375rem;
+        margin-top: 0.438rem;
+        cursor: pointer;
+
+        h3 {
+            font-size: 1.125rem;
+            color: $backgroundBlue;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: $backgroundBlue;
+        }
+    }
+}
+
+.bigPegas {
+    max-width: 24.688rem;
+    width: 100%;
 }

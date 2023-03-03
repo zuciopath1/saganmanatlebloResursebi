@@ -1,9 +1,8 @@
 header {
-    font-weight: 600;
     display: flex;
     flex-direction: column;
-    justify-items: flex-start;
-
+    grid-row: 1/4;
+    width: 16.375rem;
     .mainLogo {
         background-color: $logoBackBlue;
         height: 6rem;
@@ -26,6 +25,47 @@ header {
     .navigation{
         display: flex;
         flex-direction: column;
+        .lessonMainCont{
+            position: relative;
+            max-width: 12.5rem;
+            height: 3.188rem;
+            display: flex;
+            align-items: center;
+            margin: 0.75rem 0 0.75rem 0;
+            .lessonChildCont{
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: 11.063rem;
+                height: 3.188rem;
+                margin: 0.75rem 0.75rem;
+                cursor: pointer;
+                .sideBarFirstIcon{
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                }
+                .moemzade-title{
+                    background-color: $textBlue;
+                    padding: 10px 7px 5px 23px;
+                    position: absolute;
+                    left: 2.563rem;
+                    border-top-right-radius: 0.625rem;
+                    width: 9.875rem;
+                    h3{
+                        font-size: 1.563rem;
+                        color: $backgroundBlue;
+                    }
+                }
+            }
+            .sideBarDownloadBtn{
+                position: absolute;
+                top: 0.956rem;
+                right: -3.438rem;
+                cursor: pointer;
+            }
+        }
     }
 
     .settings {
