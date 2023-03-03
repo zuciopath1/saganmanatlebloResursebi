@@ -58,3 +58,18 @@ h6 {
     max-width: 24.688rem;
     width: 100%;
 }
+
+#dasrulebaTavidan {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+
+    #dasruleba {
+        @include button($dasrulebaBack)
+    }
+
+    #tavidan {
+        @include button($textBlue)
+    }
+}
