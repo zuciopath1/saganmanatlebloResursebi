@@ -1,153 +1,249 @@
-    .parent {
-        display: grid;
-        grid-template-columns: repeat(4, auto);
-        grid-template-rows: repeat(5, auto);
-        grid-column-gap: 52px;
-        grid-row-gap: 29px;
-        max-width: 1280px;
-        margin: 0 auto;
-        min-height: 100vh;
-        .mainSidebar { 
-            display: flex;
-            flex-direction: column;
-            grid-row: 1/6;
-            .homeSvg{
-                @include flex (space-around,center);
-                height: 79px;
-                max-width: 262px;
-                cursor: pointer;
-                h3{
-                    font-size: 25px;
-                    color:$mainFontColor;
-                    font-family: $boldFont;
-                }
-            }
-            .mainSvg{
-                background-color: #A2B6B8;
-                grid-row: 1 / 2;
-            }
-            .about-project{
-                margin-top: auto;
-                display: flex;
-                align-items: center;
-                background-color: $mainBgColor;
-                width: 262px;
-                height: 70px;
-                cursor: pointer;
-                img{
-                    margin-left: 12px;
-                }
-                h3{
-                    font-size: 25px;
-                    color: #999999;
-                    margin-left: 11px;
-                    font-family: $boldFont;
-                }
-            }
-            .hide {
-                display: none;
-              }
+body {
+    font-family: 'mainFont';
+    display: grid;
+    grid-template-columns: repeat(1,0fr);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 3.25rem;
+    grid-row-gap: 1.813rem;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    .head {
+        background-color: $backgroundBlue;
+        font-size: 2rem;
+        color: $textBlue;
+        height: 6rem;
+        display: flex;
+        align-items: flex-end;
+        padding: 0.5rem;
+        grid-column: 2/4;
+        img {
+            padding-left: 0.5rem;
         }
-        .header {
-            grid-column: 2/5;
-            height: 98px;
-            background-color: #C1D4D6;
-            .test{
-                font-size: 34px;
-                color: #5890AE;
-                margin-top: 53px;
-                margin-left: 13px;
-                font-family: $boldFont;
-            }
-            }
-        .mainContSection { 
-            grid-column: 2/5;
-            grid-row: 2/5;
-        .main-page-cards {
-            display: flex;
-            flex-wrap: wrap;
-            grid-column-gap: 126px;
-            grid-row-gap: 57px;
-            .new-container{
-                max-width: 912px;
+    }
+main {
+    .body {
+        #books {
+            grid-row: 2/4;
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            max-width: 132.75rem;
+            margin: 0 auto;
+            column-gap: 7.875rem;
+            row-gap: 3.563rem;
+            .card {
+                position: relative;
+                background-color: $backgroundBlue;
+                width: min(13rem, 100%);
+                margin: 2rem 0;
+                padding: 1rem;
                 display: flex;
                 flex-direction: column;
-                gap: 40px;
-                p{
-                    font-size: 32px;
-                    text-align: left;
-                    color: #0A2B39;
-                    font-family: "BPG Nino Mkhedruli", sans-serif;
-                    line-height: 40px;
-                }
-                .first-word{
-                    font-family: $boldFont;
-                }
-            }
-            .card{
-                background-color: $mainBgColor;
-                position: relative;
-                @include flex (center,center);
-                flex-direction: column;
-                text-align: center;
-                gap: 16px;
-                width: 200px;
-                height: 252px;
-                .card-title-1-2{
-                    margin-bottom: 16px;
-                }
-                .absolute-first{
+                justify-content: flex-start;
+                align-items: center;
+                cursor: pointer;
+
+                .cover {
                     position: absolute;
-                    top: 85px;
-                    left: 60px;
                 }
-                .absolute-second{
-                    position: absolute;
-                    top: 75px;
-                    right: 75px;
+
+                #bookCover0,
+                #bookCover1 {
+                    margin-top: 4rem;
                 }
-                .absolute-third{
-                    position: absolute;
-                    top: 77px;
-                    left: 70px;
+
+                #bookCover2,
+                #bookCover3,
+                #bookCover4,
+                #bookCover5 {
+                    margin-top: 3.5rem;
                 }
-                .absolute-fourth{
-                    position: absolute;
-                    top: 72px;
-                    left: 58px;
+
+                .card-title {
+                    font-weight: 600;
+                    text-align: center;
+                    color: $textBlue;
+                    font-size: 1.5rem;
+                    padding-top: 1rem;
                 }
-                .absolute-fifth{
-                    position: absolute;
-                    top: 74px;
-                    right: 45px;
-                }
-                .absolute-sixth{
-                    position: absolute;
-                    top: 74px;
-                    left: 60px;
-                }
-                 h3{
-                    color:$mainFontColor;
-                    font-size: 1.563rem;
-                    max-width: 150px;
-                    font-family: "BPG Nino Mtavruli Bold", sans-serif;
-                }
-                .downloadCont{
+
+                .downloadBtn {
+                    background-color: $backgroundBlue;
                     position: absolute;
                     top: 0;
-                    right: -56px;
-                    width: 56px;
-                    height: 48px;
-                    border-radius: 0px 13px 13px 0px;
-                    background-color: $mainBgColor;
-                    .downloadBtn{
-                        position: absolute;
-                        top: 9px;
-                        right: 10px;
-                        cursor: pointer;
-                    }
+                    left: 100%;
+                    padding: 0.5rem;
+                    border-radius: 0 0.813rem 0.813rem 0;
                 }
             }
+        }
+
+        #aboutProject {
+            color: $textDarkBlue;
+
+            p {
+                margin: 2rem 0;
+                font-size: 1.7rem;
+                line-height: 2.5rem;
+
+                strong {
+                    font-family: 'BoldNino';
+                }
             }
         }
-        }    
+
+        #lesson {
+            display: grid;
+            grid-template-columns: fit-content 1fr;
+            column-gap: 3rem;
+
+            h2 {
+                color: $textBlue;
+                font-size: 2rem;
+                margin: 2rem 0 1rem;
+                grid-column: 1 / 3;
+            }
+
+            img {
+                width: 8rem;
+            }
+
+            .right-block {
+                margin-top: 1rem;
+
+                strong {
+                    color: $textBlue;
+                    font-size: 2rem;
+                    padding-bottom: 2rem;
+                }
+
+                p {
+                    color: $textDarkBlue;
+                    font-size: 2rem;
+                    margin-bottom: 2rem;
+                }
+
+                ol,
+                ul {
+                    li {
+                        color: $textDarkBlue;
+                        font-size: 2rem;
+                    }
+                }
+
+                ul {
+                    list-style-type: circle;
+                    margin-left: 2rem;
+
+                    li {
+                        padding-top: 2rem;
+                    }
+                }
+
+                .fa-solid {
+                    width: 100%;
+                    text-align: center;
+                    font-size: 3rem;
+                    font-weight: 900;
+                }
+            }
+
+            .waikitxe {
+                margin-top: 1rem;
+
+                .part1 {
+                    img {
+                        grid-area: img;
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    p {
+                        color: $textDarkBlue;
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                    }
+
+                    p:nth-child(1) {
+                        grid-area: p1;
+                    }
+
+                    p:nth-child(2) {
+                        grid-area: p2;
+                    }
+
+                    display: grid;
+                    grid-template-areas: 'p1 p1'
+                    'p2 img';
+                }
+
+                .part2 {
+                    p {
+                        color: $textDarkBlue;
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                    }
+
+                    p:nth-child(1) {
+                        grid-area: p1;
+                    }
+
+                    p:nth-child(2) {
+                        grid-area: p2;
+                    }
+
+                    img:nth-child(3) {
+                        position: relative;
+                        grid-area: img1;
+                        height: 10rem;
+                        left: 70%;
+                    }
+
+                    img:nth-child(4) {
+                        grid-area: img2;
+                        height: 10rem;
+                    }
+
+                    display: grid;
+                    grid-template-areas: 'p1 p1'
+                    'img1 img2'
+                    'p2 p2';
+                }
+
+                .part3 {
+                    p {
+                        color: $textDarkBlue;
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                    }
+
+                    p:nth-child(1) {
+                        grid-area: p1;
+                    }
+
+                    p:nth-child(2) {
+                        grid-area: p2;
+                    }
+
+                    img:nth-child(3) {
+                        grid-area: img;
+                        width: 100%;
+                        height: fit-content;
+                    }
+
+                    display: grid;
+                    grid-template-areas: 'p1 p1'
+                    'p2 img';
+                }
+
+                .fa-solid {
+                    width: 100%;
+                    text-align: center;
+                    font-size: 3rem;
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+}
+}

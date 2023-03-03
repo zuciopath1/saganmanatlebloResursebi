@@ -1,121 +1,186 @@
-export function mainPageCard1 (cards,MainPage){
+import booksData from './Books.json' assert {type: 'json'};
+import { books, tavfurcelibtn, settingsbtn, aboutProject, head, nav, lessonSection, header } from "./variable.js";
 
-MainPage.mainPageCards.forEach((card,index )=> {
-    const cardDiv = document.createElement("div");
-    cardDiv.setAttribute('class', 'card ')
-    const img = document.createElement("img");
-    const img2 = document.createElement('img');
-    const h3 = document.createElement("h3");
-    // creating download button for cards
-    const downloadCont = document.createElement('div')
-    downloadCont.setAttribute('class','downloadCont')
-    const download = document.createElement('img')
-    download.setAttribute('class', 'downloadBtn')
+let title = ''; // to save title of book
 
-    download.src = './static/images/icons/download.svg'
-    download.alt = 'download-btn'
-    img.src = card.img;
-    img2.src = card.img2;
-    img2.alt = card.title;
-    img.alt = card.title;
-    h3.textContent = card.title;
+// renders books on main page
+export function ShowBooks(books, booksData) {
+    for (const [index, [bookname, data]] of Object.entries(Object.entries(booksData))) {
+        let book = document.createElement('div');
+        book.classList.add('card');
+        book.setAttribute('onclick', 'showLesson(this)'); //show lessons on books click
+        book.innerHTML = `
+        <img src="./static/images/book-relative/book.svg" id="${index}" alt="${bookname}">
+        <img src="${data.img}" alt="${bookname}" class="cover" id="bookCover${index}">
+        <h3 class="card-title">${bookname}</h3>
+        <img class="downloadBtn" src="./static/images/icons/download.svg" alt="download-btn">
+        `;
 
-     // Add different classes to each h3 element based on the card index
-    if (index === 0) {
-      h3.setAttribute('class', 'card-title-1-2');
-    } else if (index === 2) {
-      h3.setAttribute('class', 'card-title-1-2');
+        books.appendChild(book);
     }
-    
-        // Add different classes to each img2 element based on the card index
-        if (index === 0) {
-          img2.setAttribute('class', 'absolute-first');
-          img2.src = card.img2;
-        } else if (index === 1) {
-          img2.setAttribute('class', 'absolute-second');
-          img2.src = card.img2;
-        } else if (index === 2) {
-          img2.setAttribute('class', 'absolute-third');
-          img2.src = card.img2;
-        } else if (index === 3) {
-          img2.setAttribute('class', 'absolute-fourth');
-          img2.src = card.img2;
-        } else if (index === 4) {
-          img2.setAttribute('class', 'absolute-fifth');
-          img2.src = card.img2;
-        }else{
-          img2.setAttribute('class', 'absolute-sixth');
-          img2.src = card.img2;
-        }
-  
-    cardDiv.append(img.cloneNode(true));
-    cardDiv.append(img2.cloneNode(true));
-    cardDiv.append(h3.cloneNode(true));
-    downloadCont.append(download);
-    cardDiv.append(downloadCont)
-
-    cards.append(cardDiv);
-  });
 }
-import { tavpurceli } from './tavpurceli.js';
 
-// Getting references to DOM elements
-const mainSvg = document.querySelector('.mainSvg');
-const aboutProject = document.querySelector('.about-project');
-const header = document.querySelector('.header');
-// Creating a new <h3> element to be appended to header
-const aboutProjecttitle = document.createElement('h3')
-aboutProjecttitle.setAttribute('class','test')
-aboutProjecttitle.textContent = 'პროექტის შესახებ'
+//click on setting button will show about projects and hide everything else
+settingsbtn.addEventListener('click', () => {
+    header.classList.remove('showBgColor');
+    books.classList.add('hide');
+    aboutProject.classList.remove('hide');
+    tavfurcelibtn.classList.remove('hide');
+    nav.classList.add('hide');
+    settingsbtn.classList.add('hide');
+    lessonSection.classList.add('hide');
+    head.innerHTML = '<h4>პროექტის შესახებ</h4>';
+})
 
-// Adding click event listener to aboutProject element
-aboutProject.addEventListener('click', () => {
-  // Appending aboutProjecttitle to header element
-  header.append(aboutProjecttitle);
-  aboutProject.classList.add('hide');
-  
-  // Inserting a new <div> element after mainSvg
-  mainSvg.insertAdjacentHTML('afterend', `<div class="homeSvg">
-   <img src="./static/images/icons/01_home.svg" alt="icon">
-   <h3>თავფურცელი</h3>
-   </div>`);
+//click on home button will show main page and hide everything else
+tavfurcelibtn.addEventListener('click', () => {
+    header.classList.remove('showBgColor');
+    books.classList.remove('hide');
+    aboutProject.classList.add('hide');
+    tavfurcelibtn.classList.add('hide');
+    nav.classList.add('hide');
+    settingsbtn.classList.remove('hide');
+    lessonSection.classList.add('hide');
+    head.innerHTML = '';
+})
 
-  // Replacing innerHTML of mainPageCards with a new <div> element
-  const mainPageCards = document.querySelector('.main-page-cards');
-  const newContent = `
-    <div class="new-container">
-    </div>
-  `;
-  mainPageCards.innerHTML = newContent;
+//shows lessons for each book on click them
+export function showLesson(lesson) {
+    title = lesson.children[2].innerText; // get name of book
 
-  // Getting reference to the new container
-  const newContainer = document.querySelector('.new-container');
+    header.classList.add('showBgColor');
+    books.classList.add('hide');
+    tavfurcelibtn.classList.remove('hide');
+    nav.classList.remove('hide');
+    lessonSection.classList.remove('hide');
 
-  // Using requestAnimationFrame to apply styles after an element is displayed 
-  window.requestAnimationFrame(() => {
-    const homeSvg = document.querySelector('.homeSvg');
-    homeSvg.style.backgroundColor = '#C1D4D6';
-  });
+    head.innerHTML = `<h3>${title}</h3> <img src="${booksData[title]['img']}">`;
 
-  // Iterating over tavpurceli array and creating a new <div> element for each item
-  tavpurceli.forEach((item) => {
-    const dataElement = document.createElement('p');
-    dataElement.textContent = Object.values(item)[0]; // This will get the value of the first key in each object
-      // Get the first word of the textContent
-  const firstWord = dataElement.textContent.split(' ')[0];
+    showLessonSection('moemzade');
+}
 
-  // Wrap the first word in a span with a specific class
-  const formattedText = `<span class="first-word">${firstWord}</span> ${dataElement.textContent.slice(firstWord.length)}`;
+// show each lesson chosen by header (left nav bar)
+export function showLessonSection(section) {
+    let sections = booksData[title];
 
-  // Set the formattedText as the textContent of the element
-  dataElement.innerHTML = formattedText;
+    switch (section) {
+        case 'moemzade':
+            let moemzadeParags = '';
+            let moemzadeQuestions = '';
 
-    newContainer.appendChild(dataElement);
-  });
-});
+            sections[section]['p'].forEach(p => {
+                if (typeof p == 'string') {
+                    moemzadeParags += `<p>${p}</p>`;
+                } else {
+                    moemzadeParags += `<strong>${p['strong']}</strong>`;
+                }
+            });
+            sections[section]['li'].forEach(li => {
+                moemzadeQuestions += `<li>${li}</li>`;
+            });
 
+            lessonSection.innerHTML = `
+            <h2>კითხვისთვის მზადება:</h2>
+            <img src="${sections[section]['image']}" class="lessonLogo" alt="kitxvistvis mzadeba">
+            <div class="right-block">
+            ${moemzadeParags}
+            <strong>თემატური კითხვები:</strong>
+            <ul>
+            ${moemzadeQuestions}
+            </ul>
+            </div>
+            `;
+            break;
 
+        case 'waikitxe':
+            let waikitxeParags1 = '';
+            let waikitxeParags2 = '';
+            let waikitxeParags3 = '';
 
+            sections[section]['p1'].forEach((p) => {
+                waikitxeParags1 += `<p>${p}</p>`;
+            });
+            waikitxeParags1 += `<img src="${sections[section]["images"][0]}" alt="kitxvistvis mzadeba">`;
 
+            sections[section]['p2'].forEach((p) => {
+                waikitxeParags2 += `<p>${p}</p>`;
+            });
+            waikitxeParags2 += `<img src="${sections[section]["images"][1]}" alt="kitxvistvis mzadeba">`;
+            waikitxeParags2 += `<img src="${sections[section]["images"][2]}" alt="kitxvistvis mzadeba">`;
 
+            sections[section]['p3'].forEach((p) => {
+                waikitxeParags3 += `<p>${p}</p>`;
+            });
+            waikitxeParags3 += `<img src="${sections[section]["images"][3]}" alt="kitxvistvis mzadeba">`;
 
+            lessonSection.innerHTML = `
+            <div class="${section} ${title}">
+            <div class="part1">
+            ${waikitxeParags1}
+            </div>
+            <div class="part2 hide">
+            ${waikitxeParags2}
+            </div>
+            <div class="part3 hide">
+            ${waikitxeParags3}
+            </div>
+            <i class="fa-solid fa-chevron-down" onclick="toggleParags()"></i>
+            </div>
+            `;
+            break;
+
+        case 'upasuxe':
+            let upasuxeQuestions = '';
+            sections[section]['li'].forEach(li => {
+                upasuxeQuestions += `<li>${li}</li>`;
+            });
+
+            lessonSection.innerHTML = `
+            <h2>${sections[section]['title']}:</h2>
+            <img src="${sections[section]['image']}" class="lessonLogo" alt="${sections[section]['title']}">
+            <div class="right-block">
+            <ol>${upasuxeQuestions}</ol>
+            </div>
+            `;
+            break;
+
+        case 'sheavse':
+            lessonSection.innerHTML = 'sheavse';
+            break;
+
+        case 'sheqmeni':
+            lessonSection.innerHTML = `
+            <h2>${sections[section]['title']}:</h2>
+            <img src="${sections[section]['image']}" class="lessonLogo" alt="${sections[section]['title']}">
+            <div class="right-block">
+            <p>${sections[section]['p']}</p>
+            </div>
+            `;
+            break;
+    }
+}
+
+//for waikitxe section shows and hide paragraps on click arrow
+export function toggleParags() {
+    const part2 = document.querySelectorAll('.part2');
+    const part3 = document.querySelectorAll('.part3');
+
+    if (part2[0].classList.contains('hide')) {
+        part2.forEach(p => {
+            p.classList.remove('hide')
+        });
+    } else if (part3[0].classList.contains('hide')) {
+        part3.forEach(p => {
+            p.classList.remove('hide')
+        });
+        document.querySelector('.fa-chevron-down').classList.add('upDown');
+    } else {
+        part2.forEach(p => {
+            p.classList.add('hide')
+        });
+        part3.forEach(p => {
+            p.classList.add('hide')
+        });
+        document.querySelector('.fa-chevron-down').classList.remove('upDown');
+    }
+}
