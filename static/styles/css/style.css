@@ -76,6 +76,45 @@ h6 {
   width: 100%;
 }
 
+.correct {
+  color: green !important;
+}
+
+.wrong {
+  color: red !important;
+}
+
+#dasrulebaTavidan {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 3rem;
+}
+#dasrulebaTavidan #dasruleba {
+  background-color: #5C7A52;
+  color: #c1d4d6;
+  padding: 0.5rem 2rem 0.3rem;
+  border-radius: 13px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+#dasrulebaTavidan #tavidan {
+  background-color: #5890ae;
+  color: #c1d4d6;
+  padding: 0.5rem 2rem 0.3rem;
+  border-radius: 13px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -328,6 +367,20 @@ body main .body #lesson .right-block .fa-solid {
   text-align: center;
   font-size: 3rem;
   font-weight: 900;
+}
+body main .body #lesson .right-block .checkList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+body main .body #lesson .right-block .checkList input {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  background-color: #e4eeef;
+  border: #707070 solid 0.1rem;
+  outline: none;
 }
 body main .body #lesson .waikitxe {
   margin-top: 1rem;

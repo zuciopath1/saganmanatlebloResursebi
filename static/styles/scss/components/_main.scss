@@ -146,6 +146,19 @@ main {
                     font-size: 3rem;
                     font-weight: 900;
                 }
+
+                .checkList{
+                    display: flex;
+                    input{
+                        width: 2rem;
+                        height: 2rem;
+                        margin-right: 1rem;
+                        font-size: 1.5rem;
+                        background-color: #e4eeef;
+                        border: #707070 solid 0.1rem;
+                        outline: none;
+                    }
+                }
             }
 
             .waikitxe {

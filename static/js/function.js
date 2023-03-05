@@ -145,7 +145,11 @@ export function showLessonSection(section) {
             break;
 
         case 'sheavse':
-            lessonSection.innerHTML = 'sheavse';
+            if (title == 'პეგასი') {
+                pegasiSheavse();
+            } else if (title == 'დიდი მოგზაური') {
+                didiMogzauriSheavse();
+            }
             break;
 
         case 'sheqmeni':
@@ -183,4 +187,72 @@ export function toggleParags() {
         });
         document.querySelector('.fa-chevron-down').classList.remove('upDown');
     }
+}
+
+// -----------------------------------------------------
+
+export function didiMogzauriSheavse(e) {
+    let section = booksData['დიდი მოგზაური']['sheavse'];
+    let subsection = e ? e.children[0].innerText : "დააკავშირე";
+    let options = "";
+
+    switch (subsection) {
+        case 'დააკავშირე':
+            lessonSection.innerHTML = "daakavshire"
+            break;
+
+        case 'ჩასვი':
+            section[subsection]['p'].forEach(p => {
+                options += `
+            <div class="checkList">
+                <input type="number" min=1 max=4> <p>${p}</p>
+            </div>
+            `
+            });
+
+            lessonSection.innerHTML = `
+            <h2>${section[subsection]['title']}:</h2>
+            <img src="${section['img']}" class="lessonLogo" alt="sheavse">
+            <div class="right-block">
+            ${options}
+            ${addButtons()}
+            </div>
+            `;
+            document.querySelector("#dasruleba").addEventListener('click', checkMogzauriChasvi)
+            document.querySelector("#tavidan").addEventListener('click', resetMogzauriChasvi)
+            break;
+
+        case 'შეავსე':
+            lessonSection.innerHTML = "sheavse"
+            break;
+    }
+}
+
+function addButtons() {
+    return `
+    <div id="dasrulebaTavidan">
+        <h4 id="dasruleba">დასრულება</h4>
+        <h4 id="tavidan">თავიდან</h4>
+    </div>
+    `
+}
+
+function checkMogzauriChasvi() {
+    let pasuxebi = booksData['დიდი მოგზაური']['sheavse']['ჩასვი']['pasuxebi'];
+
+    document.querySelectorAll(".checkList").forEach((inpt, idx) => {
+        if (inpt.children[0].value == pasuxebi[idx]) {
+            inpt.children[1].classList.add('correct');
+        } else {
+            inpt.children[1].classList.add('wrong');
+        }
+    });
+}
+
+function resetMogzauriChasvi() {
+    document.querySelectorAll(".checkList").forEach(inpt => {
+        inpt.children[0].value = null;
+        inpt.children[1].classList.remove('correct');
+        inpt.children[1].classList.remove('wrong');
+    });
 }

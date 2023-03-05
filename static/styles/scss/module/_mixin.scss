@@ -1,5 +1,10 @@
-// @mixin flex ($justify, $align){
-//     display: flex;
-//     justify-content: $justify;
-//     align-items: $align;
-// }
+@mixin button ($backcolor) {
+    background-color: $backcolor;
+    color: $backgroundBlue;
+    padding: 0.5rem 2rem 0.3rem;
+    border-radius: 13px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
