@@ -145,7 +145,6 @@ export function showLessonSection(section) {
             break;
 
         case 'sheavse':
-            alert(title)
             if (title == 'პეგასი') {
                 pegasiSheavse();
             } else if (title == 'დიდი მოგზაური') {
@@ -206,7 +205,7 @@ export function didiMogzauriSheavse(e) {
             section[subsection]['p'].forEach(p => {
                 options += `
             <div class="checkList">
-            <input type="number" min=1 max=4> <p>${p}</p>
+                <input type="number" min=1 max=4> <p>${p}</p>
             </div>
             `
             });
@@ -239,11 +238,21 @@ function addButtons() {
 }
 
 function checkMogzauriChasvi() {
-    alert('check')
+    let pasuxebi = booksData['დიდი მოგზაური']['sheavse']['ჩასვი']['pasuxebi'];
+
+    document.querySelectorAll(".checkList").forEach((inpt, idx) => {
+        if (inpt.children[0].value == pasuxebi[idx]) {
+            inpt.children[1].classList.add('correct');
+        } else {
+            inpt.children[1].classList.add('wrong');
+        }
+    });
 }
 
 function resetMogzauriChasvi() {
     document.querySelectorAll(".checkList").forEach(inpt => {
         inpt.children[0].value = null;
+        inpt.children[1].classList.remove('correct');
+        inpt.children[1].classList.remove('wrong');
     });
 }
