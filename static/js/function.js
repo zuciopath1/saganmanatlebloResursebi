@@ -161,6 +161,14 @@ export function showLessonSection(section) {
             </div>
             `;
             break;
+
+        default:
+            if (title == 'პეგასი') {
+                pegasiSheavse(section);
+            } else if (title == 'დიდი მოგზაური') {
+                didiMogzauriSheavse(section);
+            }
+            break;
     }
 }
 
@@ -191,9 +199,9 @@ export function toggleParags() {
 
 // -----------------------------------------------------
 
-export function didiMogzauriSheavse(e) {
+function didiMogzauriSheavse(e) {
     let section = booksData['დიდი მოგზაური']['sheavse'];
-    let subsection = e ? e.children[0].innerText : "დააკავშირე";
+    let subsection = e ? e : "დააკავშირე";
     let options = "";
 
     switch (subsection) {
@@ -255,4 +263,22 @@ function resetMogzauriChasvi() {
         inpt.children[1].classList.remove('correct');
         inpt.children[1].classList.remove('wrong');
     });
+}
+
+function pegasiSheavse(e) {
+    let subsection = e ? e : "დააკავშირე";
+    
+    switch (subsection) {
+        case 'დააკავშირე':
+            lessonSection.innerHTML = "პეგასის დააკავშირე"
+            break;
+
+        case 'ჩასვი':
+            lessonSection.innerHTML = 'პეგასის ჩასვი';
+            break;
+
+        case 'შეავსე':
+            lessonSection.innerHTML = "პეგასის შეავსე"
+            break;
+    }
 }
