@@ -203,7 +203,6 @@ function didiMogzauriSheavse(e) {
     let section = booksData['დიდი მოგზაური']['sheavse'];
     let subsection = e ? e : "დააკავშირე";
     let options = "";
-
     switch (subsection) {
         case 'დააკავშირე':
             lessonSection.innerHTML = "daakavshire"
@@ -264,21 +263,58 @@ function resetMogzauriChasvi() {
         inpt.children[1].classList.remove('wrong');
     });
 }
-
+// ====================
 function pegasiSheavse(e) {
+    let section = booksData['პეგასი']['sheavse'];
     let subsection = e ? e : "დააკავშირე";
-    
     switch (subsection) {
         case 'დააკავშირე':
-            lessonSection.innerHTML = "პეგასის დააკავშირე"
-            break;
+    const leftBlock = section[subsection]['daakavshire_left_block'];
+    const rightBlock = section[subsection]['daakavshire_right_block'];
+
+    let leftBlockHtml = '';
+    leftBlock.forEach((item) => {
+        leftBlockHtml += `<p>${item}</p>`;
+    });
+
+    let rightBlockHtml = '';
+    rightBlock.forEach((item) => {
+    rightBlockHtml += `<p>${item}</p>`;
+    });
+
+    lessonSection.innerHTML = `
+        <h2>${section[subsection]['title']}</h2>
+        <img src="${section['img']}" class="lessonLogo" alt="sheavse">
+        <div class="right-block">
+        <div class="daakavshire">
+            <div class="daakavshire_left_block">${leftBlockHtml}</div>
+            <div class="daakavshire_right_block">${rightBlockHtml}</div>
+        </div>
+        ${addButtons()}
+        </div>
+    `;
+    break;
+         
 
         case 'ჩასვი':
-            lessonSection.innerHTML = 'პეგასის ჩასვი';
+            
+            lessonSection.innerHTML = `
+            <h2>${section[subsection]['title']}</h2>
+            <img src="${section['img']}" class="lessonLogo" alt="sheavse">
+            <div>
+            ${addButtons()}
+            </div>
+            `;
             break;
 
         case 'შეავსე':
-            lessonSection.innerHTML = "პეგასის შეავსე"
+            lessonSection.innerHTML = `
+            <h2>${section[subsection]['title']}</h2>
+            <img src="${section['img']}" class="lessonLogo" alt="sheavse">
+            <div>
+            ${addButtons()}
+            </div>
+            `;
             break;
     }
 }
