@@ -161,10 +161,18 @@ export function showLessonSection(section) {
             </div>
             `;
             break;
+
+        default:
+            if (title == 'პეგასი') {
+                pegasiSheavse(section);
+            } else if (title == 'დიდი მოგზაური') {
+                didiMogzauriSheavse(section);
+            }
+            break;
     }
 }
 
-//for waikitxe section shows and hide paragraps on click arrow
+//for waikitxe section, shows and hide paragraps on click arrow
 export function toggleParags() {
     const part2 = document.querySelectorAll('.part2');
     const part3 = document.querySelectorAll('.part3');
@@ -189,11 +197,10 @@ export function toggleParags() {
     }
 }
 
-// -----------------------------------------------------
 
-export function didiMogzauriSheavse(e) {
+function didiMogzauriSheavse(e) {
     let section = booksData['დიდი მოგზაური']['sheavse'];
-    let subsection = e ? e.children[0].innerText : "დააკავშირე";
+    let subsection = e ? e : "დააკავშირე";
     let options = "";
 
     switch (subsection) {
@@ -228,6 +235,66 @@ export function didiMogzauriSheavse(e) {
     }
 }
 
+function pegasiSheavse(e) {
+    let section = booksData['პეგასი']['sheavse'];
+    let subsection = e ? e : "დააკავშირე";
+
+    switch (subsection) {
+        case 'დააკავშირე':
+            const leftBlock = section[subsection]['daakavshire_left_block'];
+            const rightBlock = section[subsection]['daakavshire_right_block'];
+
+            let leftBlockHtml = '';
+            leftBlock.forEach((item) => {
+                leftBlockHtml += `<p>${item}</p>`;
+            });
+
+            let rightBlockHtml = '';
+            rightBlock.forEach((item) => {
+                rightBlockHtml += `<p>${item}</p>`;
+            });
+
+            lessonSection.innerHTML = `
+            <h2>${section[subsection]['title']}</h2>
+            <img src="${section['img']}" class="lessonLogo" alt="sheavse">
+            <div class="right-block">
+            <div id="pegasiChasvi">
+            <div class="daakavshire">
+                <div class="daakavshire_left_block">${leftBlockHtml}</div>
+                <canvas id="canvas"></canvas>
+                <div class="daakavshire_right_block">${rightBlockHtml}</div>
+            </div>
+            </div>
+            ${addButtons()}
+            </div>
+            `;
+            document.querySelector("#dasruleba").addEventListener('click', checkPegasiDaakavshire);
+            document.querySelector("#tavidan").addEventListener('click', resetPegasiDaakavshire);
+            startCanvas();
+            break;
+
+        case 'ჩასვი':
+            lessonSection.innerHTML = `
+            <h2>${section[subsection]['title']}</h2>
+            <img src="${section['img']}" class="lessonLogo" alt="sheavse">
+            <div>
+            ${addButtons()}
+            </div>
+            `;
+            break;
+
+        case 'შეავსე':
+            lessonSection.innerHTML = `
+            <h2>${section[subsection]['title']}</h2>
+            <img src="${section['img']}" class="lessonLogo" alt="sheavse">
+            <div>
+            ${addButtons()}
+            </div>
+            `;
+            break;
+    }
+}
+
 function addButtons() {
     return `
     <div id="dasrulebaTavidan">
@@ -256,3 +323,188 @@ function resetMogzauriChasvi() {
         inpt.children[1].classList.remove('wrong');
     });
 }
+
+function checkPegasiDaakavshire() {
+    if (Object.keys(chosen).length) {
+        for (const [index, [key, value]] of Object.entries(Object.entries(chosen))) {
+            if (value == correctPegasiDaakavshireAnswers[key]) {
+                existingLines[index].StrokeColor = 'green';
+                document.querySelector('.daakavshire_left_block').children[key - 1].style.color = 'green';
+                document.querySelector('.daakavshire_right_block').children[value - 1].style.color = 'green';
+            } else {
+                existingLines[index].StrokeColor = 'red';
+                document.querySelector('.daakavshire_left_block').children[key - 1].style.color = 'red';
+                document.querySelector('.daakavshire_right_block').children[value - 1].style.color = 'red';
+            }
+        }
+    }
+    draw();
+}
+
+function resetPegasiDaakavshire() {
+    existingLines = [];
+    chosen = {};
+    for (let i of document.querySelector('.daakavshire_left_block').children) {
+        i.style.color = 'black';
+    }
+    for (let i of document.querySelector('.daakavshire_right_block').children) {
+        i.style.color = 'black';
+    }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+//canvas functions START
+let canvas = null;
+let bounds = null;
+let ctx = null;
+
+let correctPegasiDaakavshireAnswers = booksData["პეგასი"]["sheavse"]["დააკავშირე"]["swori_pasuxebi"];
+let chosen = {}
+
+let startX = 0;
+let startY = 0;
+let mouseX = 0;
+let mouseY = 0;
+let isDrawing = false;
+let existingLines = [];
+
+function startCanvas() {
+    canvas = document.getElementById("canvas");
+    canvas.width = 180;
+    canvas.height = 368;
+    canvas.onmousedown = onmousedown;
+    canvas.onmouseup = onmouseup;
+    canvas.onmousemove = onmousemove;
+
+    bounds = canvas.getBoundingClientRect();
+    ctx = canvas.getContext("2d");
+
+    draw();
+}
+
+function draw() {
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, 180, 368);
+
+    ctx.lineWidth = 2;
+
+    for (let i = 0; i < existingLines.length; i++) {
+        let line = existingLines[i];
+        ctx.beginPath();
+        ctx.moveTo(line.startX, line.startY);
+        ctx.lineTo(line.endX, line.endY);
+        ctx.strokeStyle = line.StrokeColor;
+        ctx.stroke();
+    }
+
+
+    if (isDrawing) {
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(mouseX, mouseY);
+        ctx.stroke();
+    }
+}
+
+function onmousedown(e) {
+    if (e.button === 0 && e.clientX - bounds.left <= 23) {
+        if (!isDrawing) {
+            startX = e.clientX - bounds.left;
+            startY = e.clientY - bounds.top;
+
+            if (startY >= 20 && startY <= 35) {
+                chosen["1"] = null;
+                isDrawing = true;
+            } else if (startY >= 110 && startY <= 125) {
+                chosen["2"] = null;
+                isDrawing = true;
+            } else if (startY >= 200 && startY <= 215) {
+                chosen["3"] = null;
+                isDrawing = true;
+            } else if (startY >= 295 && startY <= 310) {
+                chosen["4"] = null;
+                isDrawing = true;
+            }
+        }
+
+        draw();
+    }
+}
+
+function onmouseup(e) {
+    if (e.button === 0) {
+        if (isDrawing && e.clientX - bounds.left >= 155) {
+            if (mouseY >= 20 && mouseY <= 35) {
+                existingLines.push({
+                    startX: startX,
+                    startY: startY,
+                    endX: mouseX,
+                    endY: mouseY,
+                    StrokeColor: 'black'
+                });
+                for (const [key, value] of Object.entries(chosen)) {
+                    if (value == null) {
+                        chosen[key] = 1;
+                    }
+                }
+                isDrawing = false;
+            } else if (mouseY >= 110 && mouseY <= 125) {
+                existingLines.push({
+                    startX: startX,
+                    startY: startY,
+                    endX: mouseX,
+                    endY: mouseY,
+                    StrokeColor: 'black'
+                });
+                for (const [key, value] of Object.entries(chosen)) {
+                    if (value == null) {
+                        chosen[key] = 2;
+                    }
+                }
+                isDrawing = false;
+            } else if (mouseY >= 200 && mouseY <= 215) {
+                existingLines.push({
+                    startX: startX,
+                    startY: startY,
+                    endX: mouseX,
+                    endY: mouseY,
+                    StrokeColor: 'black'
+                });
+                for (const [key, value] of Object.entries(chosen)) {
+                    if (value == null) {
+                        chosen[key] = 3;
+                    }
+                }
+                isDrawing = false;
+            } else if (mouseY >= 295 && mouseY <= 310) {
+                existingLines.push({
+                    startX: startX,
+                    startY: startY,
+                    endX: mouseX,
+                    endY: mouseY,
+                    StrokeColor: 'black'
+                });
+                for (const [key, value] of Object.entries(chosen)) {
+                    if (value == null) {
+                        chosen[key] = 4;
+                    }
+                }
+                isDrawing = false;
+
+            }
+            draw();
+        }
+    }
+}
+
+function onmousemove(e) {
+    mouseX = e.clientX - bounds.left;
+    mouseY = e.clientY - bounds.top;
+
+    if (isDrawing) {
+        draw();
+    }
+}
+//canvas functions END

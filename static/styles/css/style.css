@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Nino_Mtavruli";
   src: url(../../fonts/bpg_nino_mtavruli_bold.otf) format("openType");
@@ -381,6 +382,42 @@ body main .body #lesson .right-block .checkList input {
   background-color: #e4eeef;
   border: #707070 solid 0.1rem;
   outline: none;
+}
+body main .body #lesson #pegasiChasvi .daakavshire {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+body main .body #lesson #pegasiChasvi .daakavshire p {
+  position: relative;
+  font-size: 2rem;
+  padding: 0.8rem 2rem 0.8rem 0.8rem;
+  border: 1px solid #5890ae;
+  border-radius: 0.8rem;
+}
+body main .body #lesson #pegasiChasvi .daakavshire .daakavshire_left_block p::after {
+  content: "•";
+  position: absolute;
+  right: -1.8rem;
+  font-size: 2em;
+  color: #5890ae;
+  top: 0;
+  pointer-events: none;
+}
+body main .body #lesson #pegasiChasvi .daakavshire .daakavshire_right_block p::before {
+  content: "•";
+  position: absolute;
+  left: -1.8rem;
+  font-size: 2em;
+  color: #5890ae;
+  top: 0;
+  pointer-events: none;
 }
 body main .body #lesson .waikitxe {
   margin-top: 1rem;
