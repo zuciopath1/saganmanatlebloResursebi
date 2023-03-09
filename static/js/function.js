@@ -338,12 +338,14 @@ function checkPegasiDaakavshire() {
             }
         }
     }
+    ended = true;
     draw();
 }
 
 function resetPegasiDaakavshire() {
     existingLines = [];
     chosen = {};
+    ended = false;
     for (let i of document.querySelector('.daakavshire_left_block').children) {
         i.style.color = 'black';
     }
@@ -357,6 +359,7 @@ function resetPegasiDaakavshire() {
 let canvas = null;
 let bounds = null;
 let ctx = null;
+let ended = false;
 
 let correctPegasiDaakavshireAnswers = booksData["პეგასი"]["sheavse"]["დააკავშირე"]["swori_pasuxebi"];
 let chosen = {}
@@ -409,7 +412,7 @@ function draw() {
 }
 
 function onmousedown(e) {
-    if (e.button === 0 && e.clientX - bounds.left <= 23) {
+    if (e.button === 0 && e.clientX - bounds.left <= 23 && !ended) {
         if (!isDrawing) {
             startX = e.clientX - bounds.left;
             startY = e.clientY - bounds.top;
@@ -436,7 +439,7 @@ function onmousedown(e) {
 function onmouseup(e) {
     if (e.button === 0) {
         if (isDrawing && e.clientX - bounds.left >= 155) {
-            if (mouseY >= 20 && mouseY <= 35) {
+            if (mouseY >= 20 && mouseY <= 35 && !Object.values(chosen).includes(1)) {
                 existingLines.push({
                     startX: startX,
                     startY: startY,
@@ -450,7 +453,7 @@ function onmouseup(e) {
                     }
                 }
                 isDrawing = false;
-            } else if (mouseY >= 110 && mouseY <= 125) {
+            } else if (mouseY >= 110 && mouseY <= 125 && !Object.values(chosen).includes(2)) {
                 existingLines.push({
                     startX: startX,
                     startY: startY,
@@ -464,7 +467,7 @@ function onmouseup(e) {
                     }
                 }
                 isDrawing = false;
-            } else if (mouseY >= 200 && mouseY <= 215) {
+            } else if (mouseY >= 200 && mouseY <= 215 && !Object.values(chosen).includes(3)) {
                 existingLines.push({
                     startX: startX,
                     startY: startY,
@@ -478,7 +481,7 @@ function onmouseup(e) {
                     }
                 }
                 isDrawing = false;
-            } else if (mouseY >= 295 && mouseY <= 310) {
+            } else if (mouseY >= 295 && mouseY <= 310 && !Object.values(chosen).includes(4)) {
                 existingLines.push({
                     startX: startX,
                     startY: startY,
