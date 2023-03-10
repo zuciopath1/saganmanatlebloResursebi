@@ -204,7 +204,7 @@ body {
                     }
                 }
 
-                .waikitxe {
+                .waikitxe[class~='პეგასი'] {
                     margin-top: 1rem;
 
                     .part1 {
@@ -290,6 +290,127 @@ body {
                         display: grid;
                         grid-template-areas: 'p1 p1'
                         'p2 img';
+                    }
+
+                    .fa-solid {
+                        width: 100%;
+                        text-align: center;
+                        font-size: 3rem;
+                        font-weight: 900;
+                    }
+                }
+                
+                .waikitxe[class~='მოგზაური'] {
+                    margin-top: 1rem;
+
+                    .part1 {
+                        img {
+                            grid-area: img;
+                        }
+
+                        p {
+                            color: $textDarkBlue;
+                            font-size: 2rem;
+                            margin-bottom: 2rem;
+                        }
+
+                        p:nth-child(1) {
+                            grid-area: p1;
+                        }
+
+                        p:nth-child(2) {
+                            grid-area: p2;
+                        }
+
+                        p:nth-child(3) {
+                            grid-area: p3;
+                        }
+
+                        p:nth-child(4) {
+                            grid-area: p4;
+                        }
+
+                        display: grid;
+                        grid-template-areas: 'p1 p1'
+                        'p2 img'
+                        'p3 img'
+                        'p4 p4';
+                    }
+
+                    .part2 {
+                        p {
+                            color: $textDarkBlue;
+                            font-size: 2rem;
+                            margin-bottom: 2rem;
+                        }
+
+                        p:nth-child(1) {
+                            grid-area: p1;
+                        }
+
+                        p:nth-child(2) {
+                            grid-area: p2;
+                        }
+
+                        p:nth-child(3) {
+                            grid-area: p3;
+                        }
+
+                        img:nth-child(4) {
+                            grid-area: img1;
+                            width: 100%;
+                        }
+
+                        img:nth-child(5) {
+                            display: none;
+                        }
+
+                        display: grid;
+                        grid-template-areas: 'p1 p1'
+                        'p2 p2'
+                        'img1 img1'
+                        'p3 p3';
+                    }
+
+                    .part3 {
+                        p {
+                            color: $textDarkBlue;
+                            font-size: 2rem;
+                            margin-bottom: 2rem;
+                        }
+
+                        p:nth-child(1) {
+                            grid-area: p1;
+                        }
+
+                        p:nth-child(2) {
+                            grid-area: p2;
+                        }
+
+                        p:nth-child(3) {
+                            grid-area: p3;
+                        }
+
+                        p:nth-child(4) {
+                            grid-area: p4;
+                        }
+
+                        p:nth-child(5) {
+                            grid-area: p5;
+                        }
+
+                        img:nth-child(6) {
+                            grid-area: img;
+                            width: 100%;
+                            height: fit-content;
+                        }
+
+                        display: grid;
+                        grid-template-areas: 'p1 p1'
+                        'p2 img'
+                        'p3 img'
+                        'p4 img'
+                        'p5 img';
                     }
 
                     .fa-solid {
