@@ -80,7 +80,7 @@ export function showLessonSection(section) {
             });
 
             lessonSection.innerHTML = `
-            <h2>კითხვისთვის მზადება:</h2>
+            <h2>${sections[section]['title']}</h2>
             <img src="${sections[section]['image']}" class="lessonLogo" alt="kitxvistvis mzadeba">
             <div class="right-block">
             ${moemzadeParags}
@@ -325,25 +325,41 @@ function resetMogzauriChasvi() {
 }
 
 function checkPegasiDaakavshire() {
+    const daakavshire_left_block = document.querySelector('.daakavshire_left_block');
+    const daakavshire_right_block = document.querySelector('.daakavshire_right_block');
+
+    daakavshire_left_block.childNodes.forEach(element => {
+        element.style.color = 'red';
+    });
+    daakavshire_right_block.childNodes.forEach(element => {
+        element.style.color = 'red';
+    });
+
     if (Object.keys(chosen).length) {
-        for (const [index, [key, value]] of Object.entries(Object.entries(chosen))) {
+        for (const [key, value] of Object.entries(chosen)) {
             if (value == correctPegasiDaakavshireAnswers[key]) {
-                existingLines[index].StrokeColor = 'green';
-                document.querySelector('.daakavshire_left_block').children[key - 1].style.color = 'green';
-                document.querySelector('.daakavshire_right_block').children[value - 1].style.color = 'green';
+                existingLines[key].StrokeColor = 'green';
+                daakavshire_left_block.children[key - 1].style.color = 'green';
+                daakavshire_right_block.children[value - 1].style.color = 'green';
             } else {
-                existingLines[index].StrokeColor = 'red';
-                document.querySelector('.daakavshire_left_block').children[key - 1].style.color = 'red';
-                document.querySelector('.daakavshire_right_block').children[value - 1].style.color = 'red';
+                existingLines[key] ? existingLines[key].StrokeColor = 'red' : null;
             }
         }
     }
+
+    ended = true;
     draw();
 }
 
 function resetPegasiDaakavshire() {
     existingLines = [];
-    chosen = {};
+    chosen = {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0
+    };
+    ended = false;
     for (let i of document.querySelector('.daakavshire_left_block').children) {
         i.style.color = 'black';
     }
@@ -357,16 +373,22 @@ function resetPegasiDaakavshire() {
 let canvas = null;
 let bounds = null;
 let ctx = null;
+let ended = false;
 
 let correctPegasiDaakavshireAnswers = booksData["პეგასი"]["sheavse"]["დააკავშირე"]["swori_pasuxebi"];
-let chosen = {}
+let chosen = {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0
+}
 
 let startX = 0;
 let startY = 0;
 let mouseX = 0;
 let mouseY = 0;
 let isDrawing = false;
-let existingLines = [];
+let existingLines = {};
 
 function startCanvas() {
     canvas = document.getElementById("canvas");
@@ -388,8 +410,7 @@ function draw() {
 
     ctx.lineWidth = 2;
 
-    for (let i = 0; i < existingLines.length; i++) {
-        let line = existingLines[i];
+    for (let line of Object.values(existingLines)) {
         ctx.beginPath();
         ctx.moveTo(line.startX, line.startY);
         ctx.lineTo(line.endX, line.endY);
@@ -409,21 +430,21 @@ function draw() {
 }
 
 function onmousedown(e) {
-    if (e.button === 0 && e.clientX - bounds.left <= 23) {
+    if (e.button === 0 && e.clientX - bounds.left <= 23 && !ended) {
         if (!isDrawing) {
             startX = e.clientX - bounds.left;
             startY = e.clientY - bounds.top;
 
-            if (startY >= 20 && startY <= 35) {
+            if (startY >= 20 && startY <= 35 && !chosen['1']) {
                 chosen["1"] = null;
                 isDrawing = true;
-            } else if (startY >= 110 && startY <= 125) {
+            } else if (startY >= 110 && startY <= 125 && !chosen['2']) {
                 chosen["2"] = null;
                 isDrawing = true;
-            } else if (startY >= 200 && startY <= 215) {
+            } else if (startY >= 200 && startY <= 215 && !chosen['3']) {
                 chosen["3"] = null;
                 isDrawing = true;
-            } else if (startY >= 295 && startY <= 310) {
+            } else if (startY >= 295 && startY <= 310 && !chosen['4']) {
                 chosen["4"] = null;
                 isDrawing = true;
             }
@@ -436,63 +457,66 @@ function onmousedown(e) {
 function onmouseup(e) {
     if (e.button === 0) {
         if (isDrawing && e.clientX - bounds.left >= 155) {
-            if (mouseY >= 20 && mouseY <= 35) {
-                existingLines.push({
-                    startX: startX,
-                    startY: startY,
-                    endX: mouseX,
-                    endY: mouseY,
-                    StrokeColor: 'black'
-                });
+            if (mouseY >= 20 && mouseY <= 35 && !Object.values(chosen).includes(1)) {
                 for (const [key, value] of Object.entries(chosen)) {
                     if (value == null) {
                         chosen[key] = 1;
+
+                        existingLines[key] = {
+                            startX: startX,
+                            startY: startY,
+                            endX: mouseX,
+                            endY: mouseY,
+                            StrokeColor: 'black'
+                        };
                     }
                 }
                 isDrawing = false;
-            } else if (mouseY >= 110 && mouseY <= 125) {
-                existingLines.push({
-                    startX: startX,
-                    startY: startY,
-                    endX: mouseX,
-                    endY: mouseY,
-                    StrokeColor: 'black'
-                });
+            } else if (mouseY >= 110 && mouseY <= 125 && !Object.values(chosen).includes(2)) {
                 for (const [key, value] of Object.entries(chosen)) {
                     if (value == null) {
                         chosen[key] = 2;
+
+                        existingLines[key] = {
+                            startX: startX,
+                            startY: startY,
+                            endX: mouseX,
+                            endY: mouseY,
+                            StrokeColor: 'black'
+                        };
                     }
                 }
                 isDrawing = false;
-            } else if (mouseY >= 200 && mouseY <= 215) {
-                existingLines.push({
-                    startX: startX,
-                    startY: startY,
-                    endX: mouseX,
-                    endY: mouseY,
-                    StrokeColor: 'black'
-                });
+            } else if (mouseY >= 200 && mouseY <= 215 && !Object.values(chosen).includes(3)) {
                 for (const [key, value] of Object.entries(chosen)) {
                     if (value == null) {
                         chosen[key] = 3;
+
+                        existingLines[key] = {
+                            startX: startX,
+                            startY: startY,
+                            endX: mouseX,
+                            endY: mouseY,
+                            StrokeColor: 'black'
+                        };
                     }
                 }
                 isDrawing = false;
-            } else if (mouseY >= 295 && mouseY <= 310) {
-                existingLines.push({
-                    startX: startX,
-                    startY: startY,
-                    endX: mouseX,
-                    endY: mouseY,
-                    StrokeColor: 'black'
-                });
+            } else if (mouseY >= 295 && mouseY <= 310 && !Object.values(chosen).includes(4)) {
                 for (const [key, value] of Object.entries(chosen)) {
                     if (value == null) {
                         chosen[key] = 4;
+
+                        existingLines[key] = {
+                            startX: startX,
+                            startY: startY,
+                            endX: mouseX,
+                            endY: mouseY,
+                            StrokeColor: 'black'
+                        };
                     }
                 }
                 isDrawing = false;
-
             }
             draw();
         }
