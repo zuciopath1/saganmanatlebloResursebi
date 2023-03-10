@@ -80,7 +80,7 @@ export function showLessonSection(section) {
             });
 
             lessonSection.innerHTML = `
-            <h2>კითხვისთვის მზადება:</h2>
+            <h2>${sections[section]['title']}</h2>
             <img src="${sections[section]['image']}" class="lessonLogo" alt="kitxvistvis mzadeba">
             <div class="right-block">
             ${moemzadeParags}
