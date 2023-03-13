@@ -587,6 +587,66 @@ body main .body #lesson .waikitxe[class~=მოგზაური] .fa-solid {
   font-size: 3rem;
   font-weight: 900;
 }
+body main .body #lesson .mogzaurisheavse {
+  position: relative;
+}
+body main .body #lesson .mogzaurisheavse svg * {
+  stroke: #5890ae;
+  stroke-width: 6;
+}
+body main .body #lesson .mogzaurisheavse svg polygon {
+  fill: #c1d4d6;
+}
+body main .body #lesson .mogzaurisheavse .svgContent {
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+body main .body #lesson .mogzaurisheavse .svgContent p {
+  text-align: center;
+  margin: 0;
+}
+body main .body #lesson .mogzaurisheavse .svgContent input {
+  background-color: #e4eeef;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+body main .body #lesson .mogzaurisheavse .svgContent #sityva {
+  margin-top: 6rem;
+  width: 29%;
+}
+body main .body #lesson .mogzaurisheavse .svgContent #ganmarteba {
+  margin-top: 1rem;
+  width: 55%;
+}
+body main .body #lesson .mogzaurisheavse .svgContent #winadadeba {
+  margin-top: 2rem;
+  width: 80%;
+}
+body main .body #lesson .mogzaurisheavse .sityvebi {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+body main .body #lesson .mogzaurisheavse .sityvebi ol li {
+  color: #5890ae;
+  font-weight: 600;
+}
 body main .body #lesson .waikitxe[class~=ნაპოლეონი] {
   margin-top: 1rem;
 }

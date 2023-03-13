@@ -108,12 +108,12 @@ export function showLessonSection(section) {
             sections[section]['p3'].forEach((p) => {
                 waikitxeParags3 += `<p>${p}</p>`;
             });
-            
-            if(title == 'ნაპოლეონი'){
+
+            if (title == 'ნაპოლეონი') {
                 waikitxeParags2 += `<img src="${sections[section]["images"][1]}" alt="kitxvistvis mzadeba">`;
                 waikitxeParags3 += `<img src="${sections[section]["images"][2]}" alt="kitxvistvis mzadeba">`;
             }
-            else{
+            else {
                 waikitxeParags2 += `<img src="${sections[section]["images"][1]}" alt="kitxvistvis mzadeba">`;
                 waikitxeParags2 += `<img src="${sections[section]["images"][2]}" alt="kitxvistvis mzadeba">`;
                 waikitxeParags3 += `<img src="${sections[section]["images"][3]}" alt="kitxvistvis mzadeba">`;
@@ -242,7 +242,37 @@ function didiMogzauriSheavse(e) {
             break;
 
         case 'შეავსე':
-            lessonSection.innerHTML = "sheavse"
+            lessonSection.innerHTML = `
+            <h2>${section[subsection]['title']}:</h2>
+            <img src="${section['img']}" class="lessonLogo" alt="sheavse">
+            <div class="right-block mogzaurisheavse">
+            <svg height="420" width="650">
+            <polygon points="5,410 320,5 645,410" />
+            <line x1="175" y1="190" x2="465" y2="190" />
+            <line x1="90" y1="300" x2="555" y2="300" />
+            </svg>
+            <div class="svgContent">
+            <div id="sityva">
+                <p>სიტყვა</p>
+                <input placeholder="სიტყვა">
+            </div>
+            <div id="ganmarteba">
+                <p>განმარტება</p>
+                <input placeholder="განმარტება">
+            </div>
+            <div id="winadadeba">
+                <p>წინადადება</p>
+                <input placeholder="წინადადება">
+            </div>
+            </div>
+            <div class="sityvebi">
+            <ol>
+            <li>პატიოსანი</li>
+            <li>სახიფათო</li>
+            </ol>
+            </div>
+            </div>
+            `;
             break;
     }
 }
