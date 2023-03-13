@@ -234,7 +234,7 @@ function didiMogzauriSheavse(e) {
             <img src="${section['img']}" class="lessonLogo" alt="sheavse">
             <div class="right-block">
             ${options}
-            ${addButtons()}
+            ${addButtons(2)}
             </div>
             `;
             document.querySelector("#dasruleba").addEventListener('click', checkMogzauriChasvi)
@@ -271,6 +271,7 @@ function didiMogzauriSheavse(e) {
             <li>სახიფათო</li>
             </ol>
             </div>
+            ${addButtons(1)}
             </div>
             `;
             break;
@@ -307,7 +308,7 @@ function pegasiSheavse(e) {
                 <div class="daakavshire_right_block">${rightBlockHtml}</div>
             </div>
             </div>
-            ${addButtons()}
+            ${addButtons(2)}
             </div>
             `;
             document.querySelector("#dasruleba").addEventListener('click', checkPegasiDaakavshire);
@@ -320,7 +321,7 @@ function pegasiSheavse(e) {
             <h2>${section[subsection]['title']}</h2>
             <img src="${section['img']}" class="lessonLogo" alt="sheavse">
             <div>
-            ${addButtons()}
+            ${addButtons(2)}
             </div>
             `;
             break;
@@ -330,7 +331,7 @@ function pegasiSheavse(e) {
             <h2>${section[subsection]['title']}</h2>
             <img src="${section['img']}" class="lessonLogo" alt="sheavse">
             <div>
-            ${addButtons()}
+            ${addButtons(1)}
             </div>
             `;
             break;
@@ -355,13 +356,22 @@ function napoleoniSheavse(e) {
     }
 }
 
-function addButtons() {
-    return `
+function addButtons(amount) {
+    if (amount == 2) {
+        return `
     <div id="dasrulebaTavidan">
         <h4 id="dasruleba">დასრულება</h4>
         <h4 id="tavidan">თავიდან</h4>
     </div>
     `
+    }
+    else {
+        return `
+    <div id="dasrulebaTavidan">
+        <h4 id="tavidan">თავიდან</h4>
+    </div>
+    `
+    }
 }
 
 function checkMogzauriChasvi() {
