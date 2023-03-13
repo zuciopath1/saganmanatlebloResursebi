@@ -611,7 +611,9 @@ body main .body #lesson .mogzaurisheavse .svgContent {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 body main .body #lesson .mogzaurisheavse .svgContent p {
   text-align: center;

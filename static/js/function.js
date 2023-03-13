@@ -274,6 +274,11 @@ function didiMogzauriSheavse(e) {
             ${addButtons(1)}
             </div>
             `;
+            document.querySelector("#tavidan").addEventListener('click', function() {
+                for(let i of document.querySelector('.svgContent').children){
+                    i.children[1].value = ''
+                }
+            });
             break;
     }
 }
