@@ -46,6 +46,7 @@ tavfurcelibtn.addEventListener('click', () => {
 
 //shows lessons for each book on click them
 export function showLesson(lesson) {
+
     title = lesson.children[2].innerText; // get name of book
 
     header.classList.add('showBgColor');
@@ -78,7 +79,6 @@ export function showLessonSection(section) {
             sections[section]['li'].forEach(li => {
                 moemzadeQuestions += `<li>${li}</li>`;
             });
-
             lessonSection.innerHTML = `
             <h2>${sections[section]['title']}</h2>
             <img src="${sections[section]['image']}" class="lessonLogo" alt="kitxvistvis mzadeba">
@@ -105,13 +105,21 @@ export function showLessonSection(section) {
             sections[section]['p2'].forEach((p) => {
                 waikitxeParags2 += `<p>${p}</p>`;
             });
-            waikitxeParags2 += `<img src="${sections[section]["images"][1]}" alt="kitxvistvis mzadeba">`;
-            waikitxeParags2 += `<img src="${sections[section]["images"][2]}" alt="kitxvistvis mzadeba">`;
-
             sections[section]['p3'].forEach((p) => {
                 waikitxeParags3 += `<p>${p}</p>`;
             });
-            waikitxeParags3 += `<img src="${sections[section]["images"][3]}" alt="kitxvistvis mzadeba">`;
+            
+            if(title == 'ნაპოლეონი'){
+                waikitxeParags2 += `<img src="${sections[section]["images"][1]}" alt="kitxvistvis mzadeba">`;
+                waikitxeParags3 += `<img src="${sections[section]["images"][2]}" alt="kitxvistvis mzadeba">`;
+            }
+            else{
+                waikitxeParags2 += `<img src="${sections[section]["images"][1]}" alt="kitxvistvis mzadeba">`;
+                waikitxeParags2 += `<img src="${sections[section]["images"][2]}" alt="kitxvistvis mzadeba">`;
+                waikitxeParags3 += `<img src="${sections[section]["images"][3]}" alt="kitxvistvis mzadeba">`;
+            }
+
+
 
             lessonSection.innerHTML = `
             <div class="${section} ${title}">
@@ -149,6 +157,8 @@ export function showLessonSection(section) {
                 pegasiSheavse();
             } else if (title == 'დიდი მოგზაური') {
                 didiMogzauriSheavse();
+            } else if (title == 'ნაპოლეონი') {
+                napoleoniSheavse();
             }
             break;
 
@@ -167,6 +177,8 @@ export function showLessonSection(section) {
                 pegasiSheavse(section);
             } else if (title == 'დიდი მოგზაური') {
                 didiMogzauriSheavse(section);
+            } else if (title == 'ნაპოლეონი') {
+                napoleoniSheavse(section);
             }
             break;
     }
@@ -291,6 +303,24 @@ function pegasiSheavse(e) {
             ${addButtons()}
             </div>
             `;
+            break;
+    }
+}
+
+function napoleoniSheavse(e) {
+    let subsection = e ? e : "დააკავშირე";
+
+    switch (subsection) {
+        case 'დააკავშირე':
+            lessonSection.innerHTML = "daakavshire"
+            break;
+
+        case 'ჩასვი':
+            lessonSection.innerHTML = "chasvi"
+            break;
+
+        case 'შეავსე':
+            lessonSection.innerHTML = "sheavse"
             break;
     }
 }
