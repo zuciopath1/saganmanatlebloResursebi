@@ -8,3 +8,12 @@
     font-size: 1.2rem;
     cursor: pointer;
 }
+@mixin sheavseInput (){
+    background-color: $inputBack;
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+}
