@@ -81,3 +81,23 @@ h6 {
         @include button($textBlue)
     }
 }
+.drop-zone{
+    font-size: 2rem;
+    line-height: 0;
+    padding: 20px;
+    border: solid #5890AE;
+    display: inline-block;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 13px;
+    
+}
+.correct {
+    color: green;
+  }
+  
+.incorrect {
+    color: red;
+  }
+  .test{
+    grid-row: 3;
+  }

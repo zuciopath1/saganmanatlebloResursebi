@@ -205,7 +205,44 @@ body {
                         }
                     }
                 }
-
+                .leftSentences{
+                    display: flex;
+                    color: #0a2b39;
+                    font-size: 2rem;
+                    ol{
+                        max-width: 550px;
+                        line-height: 1.5;
+                        li{
+                            margin-bottom: 30px;
+                        }
+                    }
+                    .words{
+                        width: 100%;
+                        margin-left: 45px;
+                        p{
+                        text-align: center;
+                        background-color: #C1D4D6;
+                        padding: 15px 15px;
+                        }
+                        .wordsInner{
+                            padding: 40px 15px;
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 100px;
+                            background-color: #E4EEEF;
+                            margin-top: 10px;
+                            .word{
+                                text-align: center;
+                                padding: 10px;
+                                height: 50px;
+                                background-color: white;
+                                margin:0 auto;
+                                border: solid 1px #5890AE;
+                                border-radius: 13px;
+                            }
+                        }
+                    }
+                }
                 .waikitxe[class~='პეგასი'] {
                     margin-top: 1rem;
 

@@ -116,6 +116,28 @@ h6 {
   cursor: pointer;
 }
 
+.drop-zone {
+  font-size: 2rem;
+  line-height: 0;
+  padding: 20px;
+  border: solid #5890AE;
+  display: inline-block;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border-radius: 13px;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+.test {
+  grid-row: 3;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -421,6 +443,51 @@ body main .body #lesson #pegasiChasvi .daakavshire .daakavshire_right_block p::b
   color: #5890ae;
   top: 0;
   pointer-events: none;
+}
+body main .body #lesson .leftSentences {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #0a2b39;
+  font-size: 2rem;
+}
+body main .body #lesson .leftSentences ol {
+  max-width: 550px;
+  line-height: 1.5;
+}
+body main .body #lesson .leftSentences ol li {
+  margin-bottom: 30px;
+}
+body main .body #lesson .leftSentences .words {
+  width: 100%;
+  margin-left: 45px;
+}
+body main .body #lesson .leftSentences .words p {
+  text-align: center;
+  background-color: #C1D4D6;
+  padding: 15px 15px;
+}
+body main .body #lesson .leftSentences .words .wordsInner {
+  padding: 40px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 100px;
+  background-color: #E4EEEF;
+  margin-top: 10px;
+}
+body main .body #lesson .leftSentences .words .wordsInner .word {
+  text-align: center;
+  padding: 10px;
+  height: 50px;
+  background-color: white;
+  margin: 0 auto;
+  border: solid 1px #5890AE;
+  border-radius: 13px;
 }
 body main .body #lesson .waikitxe[class~=პეგასი] {
   margin-top: 1rem;
