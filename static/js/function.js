@@ -389,8 +389,6 @@ function pegasiSheavse(e) {
                 dropZones.forEach(dropZone => {
                     const dataValue = dropZone.textContent.trim();
                     const correctMatch = correctMatches[dropZone.closest('.sentence').dataset.sentenceId].trim();
-            
-                    console.log(`dataValue: ${dataValue}, correctMatch: ${correctMatch}`);
                     if (dataValue === correctMatch) {
                         dropZone.classList.add('correct');
                     } else {
@@ -427,10 +425,44 @@ function pegasiSheavse(e) {
             lessonSection.innerHTML = `
             <h2>${section[subsection]['title']}</h2>
             <img src="${section['img']}" class="lessonLogo" alt="sheavse">
-            <div>
+            <div class='gridRow3'>
+            <p>${section[subsection]['p']}</p>
+            <div class="tableContainer">
+            <div class="row">
+            <div class="cell title">
+            <h4>მითი</h4>
+            </div>
+            <div class="cell title">
+            <h4>ზღაპარი</h4>
+            </div>
+            </div>
+            <div class="row">
+            <div class="cell">
+            <input class='sheavseInput' placeholder='ჩაწერე პასუხი'>
+            </div>
+            <div class="cell">
+            <input class='sheavseInput' placeholder='ჩაწერე პასუხი'>
+            </div>
+            </div>
+            <div class="row">
+            <div class="cell">
+            <input class='sheavseInput' placeholder='ჩაწერე პასუხი'>
+            </div>
+            <div class="cell">
+            <input class='sheavseInput' placeholder='ჩაწერე პასუხი'>
+            </div>
+            </div>
+            </div>
             ${addButtons(1)}
             </div>
             `;
+            const button = document.querySelector('#tavidan');
+            button.addEventListener('click', function() {
+            const inputs = document.querySelectorAll('.sheavseInput');
+            inputs.forEach(function(input) {
+            input.value = '';
+            });
+          });
             break;
     }
 }

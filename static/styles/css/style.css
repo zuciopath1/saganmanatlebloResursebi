@@ -452,23 +452,23 @@ body main .body #lesson .leftSentences {
   font-size: 2rem;
 }
 body main .body #lesson .leftSentences ol {
-  max-width: 550px;
+  max-width: 34rem;
   line-height: 1.5;
 }
 body main .body #lesson .leftSentences ol li {
-  margin-bottom: 30px;
+  margin-bottom: 1.8rem;
 }
 body main .body #lesson .leftSentences .words {
   width: 100%;
-  margin-left: 45px;
+  margin-left: 2.8rem;
 }
 body main .body #lesson .leftSentences .words p {
   text-align: center;
   background-color: #C1D4D6;
-  padding: 15px 15px;
+  padding: 0.9rem 0.9rem;
 }
 body main .body #lesson .leftSentences .words .wordsInner {
-  padding: 40px 15px;
+  padding: 2.5rem 0.9rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -476,18 +476,61 @@ body main .body #lesson .leftSentences .words .wordsInner {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  row-gap: 100px;
+  row-gap: 6.25rem;
   background-color: #E4EEEF;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 body main .body #lesson .leftSentences .words .wordsInner .word {
   text-align: center;
-  padding: 10px;
-  height: 50px;
+  padding: 0.625rem;
+  height: 3rem;
   background-color: white;
   margin: 0 auto;
   border: solid 1px #5890AE;
-  border-radius: 13px;
+  border-radius: 0.8rem;
+}
+body main .body #lesson .gridRow3 {
+  grid-row: 3;
+}
+body main .body #lesson .gridRow3 p {
+  font-size: 2rem;
+  color: #0a2b39;
+}
+body main .body #lesson .gridRow3 .tableContainer {
+  display: table;
+  max-width: 42.5rem;
+  width: 100%;
+  margin: 1rem auto;
+  border: 1px solid #707070;
+}
+body main .body #lesson .gridRow3 .tableContainer .row {
+  display: table-row;
+}
+body main .body #lesson .gridRow3 .tableContainer .cell {
+  display: table-cell;
+  padding: 0.625rem;
+  vertical-align: middle;
+  border: 1px solid #707070;
+}
+body main .body #lesson .gridRow3 .tableContainer .title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+  background-color: #c1d4d6;
+}
+body main .body #lesson .gridRow3 .tableContainer .title h4 {
+  color: #5890ae;
+  font-size: 1.5rem;
+}
+body main .body #lesson .gridRow3 .tableContainer input {
+  background-color: #e4eeef;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-size: 2rem;
 }
 body main .body #lesson .waikitxe[class~=პეგასი] {
   margin-top: 1rem;
