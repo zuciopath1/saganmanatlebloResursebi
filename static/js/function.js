@@ -325,10 +325,102 @@ function pegasiSheavse(e) {
             lessonSection.innerHTML = `
             <h2>${section[subsection]['title']}</h2>
             <img src="${section['img']}" class="lessonLogo" alt="sheavse">
+            <div class="test">
+            <div class="leftSentences">
+            <ol>
+            <li class="sentence" data-sentence-id="1">${section[subsection]['p1'][0]}<span class="drop-zone">${'.'.repeat(13)}</span></li>
+            <li class="sentence" data-sentence-id="2">${section[subsection]['p1'][1]}<span class="drop-zone">${'.'.repeat(13)}</span></li>
+            <li class="sentence" data-sentence-id="3">${section[subsection]['p1'][2]}<span class="drop-zone">${'.'.repeat(13)}</span></li>
+            <li class="sentence" data-sentence-id="4">${section[subsection]['p1'][3]}<span class="drop-zone">${'.'.repeat(13)}</span></li>
+           </ol>
+      
+           <div class="words">
+           <p>სიტყვები</p>
+           <div class="wordsInner">
+           ${section[subsection]['სიტყვები'].map(word => `<div class="word" draggable="true" data-value="${word}">${word}</div>`).join('')}
+           </div>
+         </div>
             <div>
-            ${addButtons(2)}
             </div>
+            </div>
+            ${addButtons(2)}
             `;
+            const words = document.querySelectorAll('.word');
+            words.forEach(word => {
+            word.addEventListener('dragstart', handleDragStart);
+            });
+
+            function handleDragStart(event) {
+            event.dataTransfer.setData('text/plain', event.target.textContent);
+            }
+
+            const dropZones = document.querySelectorAll('.drop-zone');
+            dropZones.forEach(dropZone => {
+            dropZone.addEventListener('dragover', handleDragOver);
+            });
+
+            function handleDragOver(event) {
+            event.preventDefault();
+            }
+            dropZones.forEach(dropZone => {
+            dropZone.addEventListener('drop', handleDrop);
+            });
+
+            function handleDrop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData('text/plain');
+            event.target.textContent = data;
+    
+            const originalWord = document.querySelector(`.word[data-value="${data}"]`);
+            originalWord.parentNode.removeChild(originalWord);
+            }
+
+            document.querySelector("#dasruleba").addEventListener('click', handleCheck );
+            document.querySelector("#tavidan").addEventListener('click', handleReset);
+
+            function handleCheck() {
+                const correctMatches = {
+                    1: 'დასაგემოვნებლად',
+                    2: 'იკვებებიან',
+                    3: 'გზავნილს',
+                    4: 'ხელაწერი'
+                };
+                const dropZones = document.querySelectorAll('.drop-zone');
+                dropZones.forEach(dropZone => {
+                    const dataValue = dropZone.textContent.trim();
+                    const correctMatch = correctMatches[dropZone.closest('.sentence').dataset.sentenceId].trim();
+            
+                    console.log(`dataValue: ${dataValue}, correctMatch: ${correctMatch}`);
+                    if (dataValue === correctMatch) {
+                        dropZone.classList.add('correct');
+                    } else {
+                        dropZone.classList.add('incorrect');
+                    }
+                });
+            }
+            function createWords() {
+                const wordsContainer = document.querySelector('.words');
+                wordsContainer.innerHTML = `
+                  <p>სიტყვები</p>
+                  <div class="wordsInner">
+                    ${section[subsection]['სიტყვები'].map(word => `<div class="word" draggable="true" data-value="${word}">${word}</div>`).join('')}
+                  </div>
+                `;
+                const words = document.querySelectorAll('.word');
+                words.forEach(word => {
+                  word.addEventListener('dragstart', handleDragStart);
+                });
+              }
+              
+              
+              function handleReset() {
+                const dropZones = document.querySelectorAll('.drop-zone');
+                dropZones.forEach(dropZone => {
+                  dropZone.textContent = '.'.repeat(13);
+                  dropZone.classList.remove('correct', 'incorrect');
+                });
+                createWords();
+              }
             break;
 
         case 'შეავსე':
