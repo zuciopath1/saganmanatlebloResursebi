@@ -210,39 +210,76 @@ body {
                     color: #0a2b39;
                     font-size: 2rem;
                     ol{
-                        max-width: 550px;
+                        max-width: 34rem;
                         line-height: 1.5;
                         li{
-                            margin-bottom: 30px;
+                            margin-bottom: 1.8rem;
                         }
                     }
                     .words{
                         width: 100%;
-                        margin-left: 45px;
+                        margin-left: 2.8rem;
                         p{
                         text-align: center;
                         background-color: #C1D4D6;
-                        padding: 15px 15px;
+                        padding: 0.9rem 0.9rem;
                         }
                         .wordsInner{
-                            padding: 40px 15px;
+                            padding: 2.5rem 0.9rem;
                             display: flex;
                             flex-direction: column;
-                            row-gap: 100px;
+                            row-gap: 6.25rem;
                             background-color: #E4EEEF;
-                            margin-top: 10px;
+                            margin-top: 0.625rem;
                             .word{
                                 text-align: center;
-                                padding: 10px;
-                                height: 50px;
+                                padding: 0.625rem;
+                                height: 3rem;
                                 background-color: white;
                                 margin:0 auto;
                                 border: solid 1px #5890AE;
-                                border-radius: 13px;
+                                border-radius: 0.8rem;
                             }
                         }
                     }
                 }
+                .gridRow3{
+                    grid-row: 3;
+                    p{
+                        font-size: 2rem;
+                        color: $textDarkBlue;
+                    }
+                .tableContainer{
+                    display: table;
+                    max-width: 42.5rem;
+                    width: 100%;
+                    margin: 1rem auto;
+                    border: 1px solid $border;
+                    .row {
+                        display: table-row;
+                    }
+                    .cell {
+                        display: table-cell;
+                        padding: 0.625rem;
+                        vertical-align: middle;
+                        border: 1px solid $border;
+                    }
+                    .title {
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                        text-align: center;
+                        background-color: $backgroundBlue;
+                        h4{
+                            color: $textBlue;
+                            font-size: 1.5rem;
+                        }
+                    }
+                    input{
+                        @include sheavseInput;
+                        font-size: 2rem;
+                    }
+                }
+            }
                 .waikitxe[class~='პეგასი'] {
                     margin-top: 1rem;
 
@@ -489,13 +526,7 @@ body {
                         }
 
                         input {
-                            background-color: $inputBack;
-                            border: none;
-                            outline: none;
-                            width: 100%;
-                            margin-top: 0.5rem;
-                            padding: 0.8rem;
-                            font-size: 1rem;
+                            @include sheavseInput;
                         }
 
                         #sityva {
